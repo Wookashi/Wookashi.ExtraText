@@ -328,3 +328,6 @@ ASALocalRun/
 
 # MFractors (Xamarin productivity tool) working folder 
 .mfractor/
+/Wookashi.ExtraText/Images/icon.png
+/Wookashi.ExtraText/Wookashi.ExtraText.nuspec
+/Wookashi.ExtraText/nuget.exe

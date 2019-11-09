@@ -1,0 +1,37 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard1.2</TargetFramework>
+    <RootNamespace>Wookashi.ExtraText</RootNamespace>
+    <AssemblyName>Wookashi.ExtraText</AssemblyName>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    <Description>Simple package to replace diactric marks in text.
+Supported languages: Polish and German.</Description>
+    <Version>1.0.2.0</Version>
+    <Copyright>Wookashi</Copyright>
+    <NeutralLanguage>en</NeutralLanguage>
+    <Authors>Wookashi</Authors>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <Company />
+    <PackageReleaseNotes>Add German support.</PackageReleaseNotes>
+    <PackageIconUrl></PackageIconUrl>
+    <AssemblyVersion>1.0.2.0</AssemblyVersion>
+    <FileVersion>1.0.2.0</FileVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Normalize\" />
+    <Folder Include="Normalize\Interfaces\" />
+    <Folder Include="Normalize\Implementation\" />
+    <Folder Include="Normalize\Enums\" />
+    <Folder Include="Normalize\Models\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="Normalize\Interfaces\INormalizator.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="Images\icon.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+</Project>
