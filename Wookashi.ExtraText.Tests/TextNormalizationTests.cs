@@ -8,18 +8,18 @@ namespace Wookashi.ExtraText.Tests
         [Theory]
         [InlineData("ą, ć, ę, ł, ń, ó, ś, ź, ż.", "a, c, e, l, n, o, s, z, z.")] // Polish
         [InlineData("ä, Ä, ö, Ö, ü, Ü, ß.", "ae, oe, ue, Ae, Oe, Ue, ss.")]      // German
-        public void RemoveDiactricMarks_NoLanguage_Pass(string sourceText, string resultText)
+        public void ReplaceDiacriticalMarks_NoLanguage_Pass(string sourceText, string resultText)
         {
-            var result = sourceText.ReplaceDiactricMarks();
+            var result = sourceText.ReplaceDiacriticalMarks();
             Assert.Equal(resultText, result);
         }
 
         [Theory]
         [InlineData("ą, ć, ę, ł, ń, ó, ś, ź, ż.", "ą, ć, ę, ł, ń, ó, ś, ź, ż.")] // Polish
         [InlineData("ä, Ä, ö, Ö, ü, Ü, ß.", "ä, Ä, ö, Ö, ü, Ü, ß.")]             // German
-        public void RemoveDiactricMarks_NoLanguage_Fail(string sourceText, string resultText)
+        public void ReplaceDiacriticalMarks_NoLanguage_Fail(string sourceText, string resultText)
         {
-            var result = sourceText.ReplaceDiactricMarks();
+            var result = sourceText.ReplaceDiacriticalMarks();
             Assert.NotEqual(resultText, result);
         }
 
@@ -35,9 +35,9 @@ namespace Wookashi.ExtraText.Tests
         [InlineData("ż", "z")]
         [InlineData("ą, ć, ę, ł, ń, ó, ś, ź, ż.", "a, c, e, l, n, o, s, z, z.")]
         [InlineData("ä, Ä, ö, Ö, ü, Ü, ß.", "ä, Ä, ö, Ö, ü, Ü, ß.")]
-        public void RemoveDiactricMarks_Polish_Pass(string sourceText, string resultText)
+        public void ReplaceDiacriticalMarks_Polish_Pass(string sourceText, string resultText)
         {
-            var result = sourceText.ReplaceDiactricMarks(Language.Polish);
+            var result = sourceText.ReplaceDiacriticalMarks(Language.Polish);
             Assert.Equal(resultText, result);
         }
 
@@ -52,9 +52,9 @@ namespace Wookashi.ExtraText.Tests
         [InlineData("ź", "ź", Language.Polish)]
         [InlineData("ż", "ż", Language.Polish)]
         [InlineData("ą, ć, ę, ł, ń, ó, ś, ź, ż.", "ą, ć, ę, ł, ń, ó, ś, ź, ż.", Language.Polish)]
-        public void RemoveDiactricMarks_Polish_Fail(string sourceText, string resultText, Language language)
+        public void ReplaceDiacriticalMarks_Polish_Fail(string sourceText, string resultText, Language language)
         {
-            var result = sourceText.ReplaceDiactricMarks(language);
+            var result = sourceText.ReplaceDiacriticalMarks(language);
             Assert.NotEqual(resultText, result);
         }
 
@@ -68,9 +68,9 @@ namespace Wookashi.ExtraText.Tests
         [InlineData("ß", "ss")]
         [InlineData("ä, Ä, ö, Ö, ü, Ü, ß.", "ae, oe, ue, Ae, Oe, Ue, ss.")]
         [InlineData("ą, ć, ę, ł, ń, ó, ś, ź, ż.", "ą, ć, ę, ł, ń, ó, ś, ź, ż.")]
-        public void RemoveDiactricMarks_German_Pass(string sourceText, string resultText)
+        public void ReplaceDiacriticalMarks_German_Pass(string sourceText, string resultText)
         {
-            var result = sourceText.ReplaceDiactricMarks(Language.German);
+            var result = sourceText.ReplaceDiacriticalMarks(Language.German);
             Assert.Equal(resultText, result);
         }
 
@@ -83,9 +83,9 @@ namespace Wookashi.ExtraText.Tests
         [InlineData("Ü", "Ü", Language.German)]
         [InlineData("ß", "ß", Language.German)]
         [InlineData("ä, Ä, ö, Ö, ü, Ü, ß.", "ä, Ä, ö, Ö, ü, Ü, ß.", Language.German)]
-        public void RemoveDiactricMarks_German_Fail(string sourceText, string resultText, Language language)
+        public void ReplaceDiacriticalMarks_German_Fail(string sourceText, string resultText, Language language)
         {
-            var result = sourceText.ReplaceDiactricMarks(language);
+            var result = sourceText.ReplaceDiacriticalMarks(language);
             Assert.NotEqual(resultText, result);
         }
     }

@@ -3,7 +3,7 @@ namespace Wookashi.ExtraText.Normalize.Enums
 {
     public enum Language
     {
-        none = 0,
+        None = 0,
         Polish,
         German,
     }
