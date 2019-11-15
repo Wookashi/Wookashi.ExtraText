@@ -25,11 +25,13 @@ namespace Wookashi.ExtraText.Tests
 
         [Theory]
         [InlineData("ą", "a")]
+        [InlineData("Ą", "A")]
         [InlineData("ć", "c")]
         [InlineData("ę", "e")]
         [InlineData("ł", "l")]
         [InlineData("ń", "n")]
         [InlineData("ó", "o")]
+        [InlineData("Ó", "O")]
         [InlineData("ś", "s")]
         [InlineData("ź", "z")]
         [InlineData("ż", "z")]
