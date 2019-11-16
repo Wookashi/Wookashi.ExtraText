@@ -15,7 +15,7 @@ namespace Wookashi.ExtraText.Normalize.Implementation
         public string ReplaceDiacriticalMarks(string text)
         {
             var builder = new StringBuilder(text);
-            foreach (var dMark in LanguageDiacriticMark.Marks)
+            foreach (var dMark in LanguageDiacriticalMark.Marks)
             {
                 builder.Replace(dMark.Source, dMark.Target);
             }
@@ -25,7 +25,7 @@ namespace Wookashi.ExtraText.Normalize.Implementation
         public string ReplaceDiacriticalMarks(string text, Language language)
         {
             var builder = new StringBuilder(text);
-            foreach (var dMark in LanguageDiacriticMark.Marks.Where(x => x.Language == language))
+            foreach (var dMark in LanguageDiacriticalMark.Marks.Where(x => x.Language == language))
             {
                 builder.Replace(dMark.Source, dMark.Target);
             }
@@ -35,7 +35,7 @@ namespace Wookashi.ExtraText.Normalize.Implementation
         public string ReplaceDiacriticalMarks(string text, Language[] languages)
         {
             var builder = new StringBuilder(text);
-            foreach (var dMark in LanguageDiacriticMark.Marks.Where(x => languages.Contains(x.Language)))
+            foreach (var dMark in LanguageDiacriticalMark.Marks.Where(x => languages.Contains(x.Language)))
             {
                 builder.Replace(dMark.Source, dMark.Target);
             }

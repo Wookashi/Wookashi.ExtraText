@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using Wookashi.ExtraText.Normalize.Enums;
 using Xunit;
 
@@ -89,6 +90,17 @@ namespace Wookashi.ExtraText.Tests
         {
             var result = sourceText.ReplaceDiacriticalMarks(language);
             Assert.NotEqual(resultText, result);
+        }
+
+        [Fact]
+        public void Marks_Replace_Performance()
+        {
+            var stopWatch = new Stopwatch();
+            var sample = "ąćęłńóśźżąćęłńóśźżąćęłńóśźżąćęłńóśźżąćęłńóśźżąćęłńóśźżąćęłńóśźżąćęłńóśźżąćęłńóśźżąćęłńóśźż";
+            stopWatch.Start();
+            sample.ReplaceDiacriticalMarks();
+            stopWatch.Stop();
+            Assert.True(stopWatch.ElapsedMilliseconds < 1);
         }
     }
 }
