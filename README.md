@@ -13,7 +13,7 @@ Install-Package Wookashi.ExtraText
 Use Manage Nuget Packages from menu and search Wookashi.ExtraText.
 
 ## Running
-Firstly add Wookashi.EtraText namespace.<br/>
+Firstly add Wookashi.ExtraText namespace.<br/>
 Secondly you have new string extensions:
 ```
 "SomeTEXT".ReplaceDiacriticalMarks()
