@@ -2,7 +2,7 @@
 Wookashi.ExtraText is an open-source, cross-platform very simple plugin allows you replace language specific diacritic marks to unified used globally.
 
 ## Getting Started
-Few informations about pugin. How to install it and use.
+Instalaltion and use is very simple.
 
 ### Installing
 You can install plugin in two ways:<br/>
@@ -22,7 +22,7 @@ or
 ```
 "SomeTEXT".ReplaceDiacriticalMarks(Language language)
 ```
-Where Language is Wookashi.ExtraText.Normalize.Enums.Language enum.<br/>
+Language is Wookashi.ExtraText.Normalize.Enums.Language enum.<br/>
 Example of use:
 ```
 using System;
