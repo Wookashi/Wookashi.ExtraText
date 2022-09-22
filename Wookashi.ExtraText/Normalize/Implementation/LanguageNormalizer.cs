@@ -1,12 +1,11 @@
 ﻿using System.Linq;
 using System.Text;
 using Wookashi.ExtraText.Normalize.Enums;
-using Wookashi.ExtraText.Normalize.Interfaces;
 using Wookashi.ExtraText.Normalize.Models;
 
 namespace Wookashi.ExtraText.Normalize.Implementation
 {
-    public class LanguageNormalizer : ILanguageNormalizer
+    public class LanguageNormalizer
     {
 
         public string ReplaceDiacriticalMarks(string text)
