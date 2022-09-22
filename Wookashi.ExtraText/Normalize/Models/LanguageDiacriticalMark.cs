@@ -3,7 +3,7 @@ using Wookashi.ExtraText.Normalize.Enums;
 
 namespace Wookashi.ExtraText.Normalize.Models
 {
-    public class LanguageDiacriticalMark
+    internal sealed class LanguageDiacriticalMark
     {
         public Language Language { get; }
         public string Source { get; }
@@ -16,7 +16,7 @@ namespace Wookashi.ExtraText.Normalize.Models
             Target = target;
         }
 
-        public static IEnumerable<LanguageDiacriticalMark> Marks => new List<LanguageDiacriticalMark> {
+        internal static IEnumerable<LanguageDiacriticalMark> Marks => new List<LanguageDiacriticalMark> {
             // Polish
                 new LanguageDiacriticalMark(Language.Polish, "ą", "a"),
                 new LanguageDiacriticalMark(Language.Polish, "ć", "c"),
