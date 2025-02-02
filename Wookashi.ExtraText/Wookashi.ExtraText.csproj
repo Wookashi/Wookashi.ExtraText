@@ -4,27 +4,26 @@
     <TargetFramework>netstandard1.2</TargetFramework>
     <RootNamespace>Wookashi.ExtraText</RootNamespace>
     <AssemblyName>Wookashi.ExtraText</AssemblyName>
+    <Version>1.1.0</Version>
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
-    <Description>Simple package to replace diactric marks in text.
-Supported languages: Polish and German.</Description>
-    <Version>1.0.4</Version>
-    <Copyright>Wookashi</Copyright>
+    <Description>Simple package to replace diacritical marks in text.
+        Supported languages: Polish, German, French and Czech.</Description>
+    <Copyright>Copyright ©2019 Wookashi</Copyright>
     <NeutralLanguage>en</NeutralLanguage>
     <Authors>Wookashi</Authors>
-    <Company />
-    <PackageVersion>1.0.4</PackageVersion>
+    <PackageId>Wookashi.ExtraText</PackageId>
+    <PackageReleaseNotes>New languages added (French, Czech)</PackageReleaseNotes>
+    <PackageTags>diacritical replace chars polish german french czech</PackageTags>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageIcon>icon.png</PackageIcon>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <RepositoryType>git</RepositoryType>
+    <RepositoryUrl>https://github.com/Wookashi/Wookashi.ExtraText.git</RepositoryUrl>
+    <Owners>Wookashi</Owners>
   </PropertyGroup>
-    
   <ItemGroup>
-    <Folder Include="Normalize\Implementation\" />
-    <Folder Include="Normalize\Enums\" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Remove="Normalize\Interfaces\INormalizator.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Update="Images\icon.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
+    <None Include="icon.png" Pack="true" PackagePath="." />
+    <None Include="..\README.md" Pack="true" PackagePath="."/>
   </ItemGroup>
 </Project>
