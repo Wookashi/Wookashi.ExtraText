@@ -1,10 +1,10 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard1.2</TargetFramework>
+    <TargetFramework>netstandard2.0</TargetFramework>
     <RootNamespace>Wookashi.ExtraText</RootNamespace>
     <AssemblyName>Wookashi.ExtraText</AssemblyName>
-    <Version>1.2.0</Version>
+    <Version>2.0.0</Version>
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
     <Description>Simple package to replace diacritical marks in text.
         Supported languages: Polish, German, French, Spanish, Swedish, Slovak, Czech, Hungarian and Serbian.</Description>
@@ -12,7 +12,7 @@
     <NeutralLanguage>en</NeutralLanguage>
     <Authors>Wookashi</Authors>
     <PackageId>Wookashi.ExtraText</PackageId>
-    <PackageReleaseNotes>New languages added (Spanish, Swedish, Slovak, Hungarian, Serbian)</PackageReleaseNotes>
+    <PackageReleaseNotes>Support only for .Net Standard 2.0 and higher</PackageReleaseNotes>
     <PackageTags>diacritical replace chars polish german french spanish swedish slovak czech hungarian serbian</PackageTags>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageIcon>icon.png</PackageIcon>
@@ -21,6 +21,7 @@
     <RepositoryType>git</RepositoryType>
     <RepositoryUrl>https://github.com/Wookashi/Wookashi.ExtraText.git</RepositoryUrl>
     <Owners>Wookashi</Owners>
+    <LangVersion>latest</LangVersion>
   </PropertyGroup>
   <ItemGroup>
     <None Include="icon.png" Pack="true" PackagePath="." />
