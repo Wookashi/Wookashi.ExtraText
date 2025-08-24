@@ -4,16 +4,16 @@
     <TargetFramework>netstandard1.2</TargetFramework>
     <RootNamespace>Wookashi.ExtraText</RootNamespace>
     <AssemblyName>Wookashi.ExtraText</AssemblyName>
-    <Version>1.1.0</Version>
+    <Version>1.2.0</Version>
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
     <Description>Simple package to replace diacritical marks in text.
-        Supported languages: Polish, German, French and Czech.</Description>
+        Supported languages: Polish, German, French, Spanish, Swedish, Slovak, Czech, Hungarian and Serbian.</Description>
     <Copyright>Copyright ©2019 Wookashi</Copyright>
     <NeutralLanguage>en</NeutralLanguage>
     <Authors>Wookashi</Authors>
     <PackageId>Wookashi.ExtraText</PackageId>
-    <PackageReleaseNotes>New languages added (French, Czech)</PackageReleaseNotes>
-    <PackageTags>diacritical replace chars polish german french czech</PackageTags>
+    <PackageReleaseNotes>New languages added (Spanish, Swedish, Slovak, Hungarian, Serbian)</PackageReleaseNotes>
+    <PackageTags>diacritical replace chars polish german french spanish swedish slovak czech hungarian serbian</PackageTags>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageIcon>icon.png</PackageIcon>
     <PackageReadmeFile>README.md</PackageReadmeFile>
