@@ -358,6 +358,15 @@ namespace Wookashi.ExtraText.Normalize.Models
             new LanguageDiacriticalMark(Language.Latvian, "Ū", "U"),
             new LanguageDiacriticalMark(Language.Latvian, "ž", "z"),
             new LanguageDiacriticalMark(Language.Latvian, "Ž", "Z"),
+            // Estonian
+            new LanguageDiacriticalMark(Language.Estonian, "ä", "a"),
+            new LanguageDiacriticalMark(Language.Estonian, "Ä", "A"),
+            new LanguageDiacriticalMark(Language.Estonian, "ö", "o"),
+            new LanguageDiacriticalMark(Language.Estonian, "Ö", "O"),
+            new LanguageDiacriticalMark(Language.Estonian, "ü", "u"),
+            new LanguageDiacriticalMark(Language.Estonian, "Ü", "U"),
+            new LanguageDiacriticalMark(Language.Estonian, "õ", "o"),
+            new LanguageDiacriticalMark(Language.Estonian, "Õ", "O"),
         };
     }
 }
