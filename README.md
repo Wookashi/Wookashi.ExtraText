@@ -28,7 +28,7 @@ dotnet add package Wookashi.ExtraText
 
 ### PackageReference
 ```xml
-<PackageReference Include="Wookashi.ExtraText" Version="2.0.0" />
+<PackageReference Include="Wookashi.ExtraText" Version="2.2.0" />
 ```
 
 ## Usage

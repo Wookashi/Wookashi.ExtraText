@@ -101,6 +101,6 @@ Wookashi.ExtraText/
 - Performance testing (< 1ms for 80-character string)
 
 ## Package Info
-- **Version:** 2.0.0
+- **Version:** 2.2.0
 - **License:** MIT
 - **Target:** .NET Standard 2.0
