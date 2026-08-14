@@ -1013,7 +1013,7 @@ namespace Wookashi.ExtraText.Tests
 
         [Theory]
         [InlineData("ą, ć, ę, ł, ń, ó, ś, ź, ż.", "a, c, e, l, n, o, s, z, z.")]
-        [InlineData("ä, Ä, ö, Ö, ü, Ü, ß.", "ae, Ae, oe, Oe, ue, Ue, ss.")]
+        [InlineData("ä, Ä, ö, Ö, ü, Ü, ß.", "a, A, o, O, u, U, ss.")]
         public void ReplaceDiacriticalMarks_NoLanguage_ReplacesAllMarks(string source, string expected)
         {
             var result = source.ReplaceDiacriticalMarks();
@@ -1031,6 +1031,46 @@ namespace Wookashi.ExtraText.Tests
             Assert.DoesNotContain("ć", result);
             Assert.DoesNotContain("ü", result);
             Assert.DoesNotContain("é", result);
+        }
+
+        #endregion
+
+        #region No Language Specified - Ambiguous Cross-Language Characters
+
+        // ä/ö/ü are mapped differently depending on language (German uses the "ae"/"oe"/"ue" digraph
+        // convention, everyone else maps them to a single plain letter). Without an explicit language,
+        // the result must be deterministic and must not silently follow German's convention just because
+        // German happens to be declared early in the internal marks list.
+
+        [Theory]
+        [InlineData("ä", "a")]
+        [InlineData("Ä", "A")]
+        [InlineData("ö", "o")]
+        [InlineData("Ö", "O")]
+        [InlineData("ü", "u")]
+        [InlineData("Ü", "U")]
+        public void ReplaceDiacriticalMarks_NoLanguage_AmbiguousCharacters_ResolveToPlainLetter(string source, string expected)
+        {
+            var result = source.ReplaceDiacriticalMarks();
+            Assert.Equal(expected, result);
+        }
+
+        [Theory]
+        [InlineData("Öresund")]
+        [InlineData("Älskar")]
+        [InlineData("Ångström")]
+        public void ReplaceDiacriticalMarks_NoLanguage_AmbiguousCharacters_MatchExplicitNonGermanLanguage(string source)
+        {
+            var noLanguage = source.ReplaceDiacriticalMarks();
+            var swedish = source.ReplaceDiacriticalMarks(Language.Swedish);
+            Assert.Equal(swedish, noLanguage);
+        }
+
+        [Fact]
+        public void ReplaceDiacriticalMarks_German_StillUsesDigraphsWhenLanguageIsExplicit()
+        {
+            var result = "Größe über alles".ReplaceDiacriticalMarks(Language.German);
+            Assert.Equal("Groesse ueber alles", result);
         }
 
         #endregion

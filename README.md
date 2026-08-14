@@ -43,8 +43,15 @@ Replaces diacritical marks from all supported languages:
 ```csharp
 "żółć".ReplaceDiacriticalMarks();     // Returns "zolc"
 "café".ReplaceDiacriticalMarks();     // Returns "cafe"
-"Müller".ReplaceDiacriticalMarks();   // Returns "Mueller"
+"Müller".ReplaceDiacriticalMarks();   // Returns "Muller"
 ```
+
+> **Note:** A few characters (`ä`, `ö`, `ü`) are transliterated differently depending on language —
+> German uses the `ae`/`oe`/`ue` digraph convention, while every other supported language that has
+> these letters maps them to a single plain letter. When no language is specified, these characters
+> always resolve to the plain letter (`a`/`o`/`u`) for a deterministic, language-agnostic result. To
+> get German's digraph convention, call `ReplaceDiacriticalMarks(Language.German)` explicitly (see
+> below).
 
 ### Replace Language-Specific Marks
 Replaces only marks from the specified language:

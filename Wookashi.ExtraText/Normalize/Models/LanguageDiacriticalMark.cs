@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using Wookashi.ExtraText.Normalize.Enums;
 
 namespace Wookashi.ExtraText.Normalize.Models
@@ -413,5 +415,24 @@ namespace Wookashi.ExtraText.Normalize.Models
             new LanguageDiacriticalMark(Language.Welsh, "ŷ", "y"),
             new LanguageDiacriticalMark(Language.Welsh, "Ŷ", "Y"),
         };
+
+        // A handful of characters are mapped differently across languages (e.g. German transliterates
+        // ä/ö/ü as "ae"/"oe"/"ue", while every other language that has these letters maps them to a
+        // single plain letter). For the language-agnostic overload we resolve each source character to
+        // exactly one target - the shortest one - so the result is deterministic and independent of
+        // declaration order above, instead of silently depending on whichever language happens to be
+        // listed first in Marks. Language-specific overloads are unaffected and keep using Marks directly.
+        internal static readonly IReadOnlyList<LanguageDiacriticalMark> CanonicalMarks = Marks
+            .GroupBy(mark => mark.Source)
+            .Select(group => group
+                .OrderBy(mark => mark.Target.Length)
+                .ThenBy(mark => mark.Target, StringComparer.Ordinal)
+                .First())
+            .ToList();
+
+        // Groups Marks by language so ReplaceDiacriticalMarks(text, language) can look up the relevant
+        // subset directly instead of linearly scanning and filtering the full list on every call.
+        internal static readonly ILookup<Language, LanguageDiacriticalMark> ByLanguage =
+            Marks.ToLookup(mark => mark.Language);
     }
 }
