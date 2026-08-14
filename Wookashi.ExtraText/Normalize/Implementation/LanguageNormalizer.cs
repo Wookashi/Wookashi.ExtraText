@@ -31,10 +31,12 @@ namespace Wookashi.ExtraText.Normalize.Implementation
         {
             var languageSet = new HashSet<Language>(languages);
             var builder = new StringBuilder(text);
-            foreach (var dMark in LanguageDiacriticalMark.Marks)
+            foreach (var language in languageSet)
             {
-                if (languageSet.Contains(dMark.Language))
+                foreach (var dMark in LanguageDiacriticalMark.ByLanguage[language])
+                {
                     builder.Replace(dMark.Source, dMark.Target);
+                }
             }
             return builder.ToString();
         }

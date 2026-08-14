@@ -51,7 +51,7 @@ namespace Wookashi.ExtraText
         /// </param>
         /// <returns>The normalized text.</returns>
         /// <exception cref="ArgumentNullException"><paramref name="sourceText"/> is <see langword="null"/>.</exception>
-        public static string ReplaceDiacriticalMarks(this string sourceText, params Language[] languages)
+        public static string ReplaceDiacriticalMarks(this string sourceText, params Language[]? languages)
         {
             if (sourceText is null) throw new ArgumentNullException(nameof(sourceText));
             if (languages == null || languages.Length == 0) return sourceText;
