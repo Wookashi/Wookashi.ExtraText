@@ -137,10 +137,10 @@ namespace Wookashi.ExtraText.Tests
 
         [Theory]
         [InlineData("ä", "ae")]
-        [InlineData("Ä", "oe")]
-        [InlineData("ö", "ue")]
-        [InlineData("Ö", "Ae")]
-        [InlineData("ü", "Oe")]
+        [InlineData("Ä", "Ae")]
+        [InlineData("ö", "oe")]
+        [InlineData("Ö", "Oe")]
+        [InlineData("ü", "ue")]
         [InlineData("Ü", "Ue")]
         [InlineData("ß", "ss")]
         public void ReplaceDiacriticalMarks_German_IndividualCharacters(string source, string expected)
@@ -150,7 +150,7 @@ namespace Wookashi.ExtraText.Tests
         }
 
         [Theory]
-        [InlineData("ä, Ä, ö, Ö, ü, Ü, ß.", "ae, oe, ue, Ae, Oe, Ue, ss.")]
+        [InlineData("ä, Ä, ö, Ö, ü, Ü, ß.", "ae, Ae, oe, Oe, ue, Ue, ss.")]
         public void ReplaceDiacriticalMarks_German_Sentences(string source, string expected)
         {
             var result = source.ReplaceDiacriticalMarks(Language.German);
@@ -1000,7 +1000,7 @@ namespace Wookashi.ExtraText.Tests
 
         [Theory]
         [InlineData("ą, ć, ę, ł, ń, ó, ś, ź, ż.", "a, c, e, l, n, o, s, z, z.")]
-        [InlineData("ä, Ä, ö, Ö, ü, Ü, ß.", "ae, oe, ue, Ae, Oe, Ue, ss.")]
+        [InlineData("ä, Ä, ö, Ö, ü, Ü, ß.", "ae, Ae, oe, Oe, ue, Ue, ss.")]
         public void ReplaceDiacriticalMarks_NoLanguage_ReplacesAllMarks(string source, string expected)
         {
             var result = source.ReplaceDiacriticalMarks();

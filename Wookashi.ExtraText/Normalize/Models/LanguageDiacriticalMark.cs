@@ -39,10 +39,10 @@ namespace Wookashi.ExtraText.Normalize.Models
             new LanguageDiacriticalMark(Language.Polish, "Ź", "Z"),
             // German 
             new LanguageDiacriticalMark(Language.German, "ä", "ae"),
-            new LanguageDiacriticalMark(Language.German, "Ä", "oe"),
-            new LanguageDiacriticalMark(Language.German, "ö", "ue"),
-            new LanguageDiacriticalMark(Language.German, "Ö", "Ae"),
-            new LanguageDiacriticalMark(Language.German, "ü", "Oe"),
+            new LanguageDiacriticalMark(Language.German, "Ä", "Ae"),
+            new LanguageDiacriticalMark(Language.German, "ö", "oe"),
+            new LanguageDiacriticalMark(Language.German, "Ö", "Oe"),
+            new LanguageDiacriticalMark(Language.German, "ü", "ue"),
             new LanguageDiacriticalMark(Language.German, "Ü", "Ue"),
             new LanguageDiacriticalMark(Language.German, "ß", "ss"),
             // French 
