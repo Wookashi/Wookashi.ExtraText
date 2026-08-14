@@ -298,6 +298,17 @@ namespace Wookashi.ExtraText.Normalize.Models
             new LanguageDiacriticalMark(Language.Icelandic, "Æ", "AE"),
             new LanguageDiacriticalMark(Language.Icelandic, "ö", "o"),
             new LanguageDiacriticalMark(Language.Icelandic, "Ö", "O"),
+            // Croatian
+            new LanguageDiacriticalMark(Language.Croatian, "č", "c"),
+            new LanguageDiacriticalMark(Language.Croatian, "Č", "C"),
+            new LanguageDiacriticalMark(Language.Croatian, "ć", "c"),
+            new LanguageDiacriticalMark(Language.Croatian, "Ć", "C"),
+            new LanguageDiacriticalMark(Language.Croatian, "đ", "d"),
+            new LanguageDiacriticalMark(Language.Croatian, "Đ", "D"),
+            new LanguageDiacriticalMark(Language.Croatian, "š", "s"),
+            new LanguageDiacriticalMark(Language.Croatian, "Š", "S"),
+            new LanguageDiacriticalMark(Language.Croatian, "ž", "z"),
+            new LanguageDiacriticalMark(Language.Croatian, "Ž", "Z"),
         };
     }
 }
