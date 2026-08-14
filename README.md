@@ -8,7 +8,7 @@ A lightweight, cross-platform .NET library for removing diacritical marks (accen
 
 ## Features
 
-- Supports **9 languages** with 200+ character mappings
+- Supports **25 languages** with 300+ character mappings
 - Simple extension methods on `string`
 - Cross-platform (.NET Framework 4.6.1+, .NET Core 2.0+, .NET 5+)
 - High performance using `StringBuilder`
@@ -86,13 +86,29 @@ class Program
 |----------|-------------------|-------------|
 | **Polish** | ą, ć, ę, ł, ń, ó, ś, ź, ż | a, c, e, l, n, o, s, z, z |
 | **German** | ä, ö, ü, ß | ae, oe, ue, ss |
-| **French** | à, â, é, è, ê, ë, ç, î, ï, ô, ù, û | a, a, e, e, e, e, c, i, i, o, u, u |
+| **French** | à, â, é, è, ê, ë, ç, î, ï, ô, ù, û, œ, æ | a, a, e, e, e, e, c, i, i, o, u, u, oe, ae |
 | **Spanish** | á, é, í, ó, ú, ü, ñ | a, e, i, o, u, u, n |
 | **Swedish** | å, ä, ö | a, a, o |
-| **Slovak** | á, č, ď, ľ, ň, ô, ŕ, š, ť, ý, ž | a, c, d, l, n, o, r, s, t, y, z |
+| **Slovak** | á, ä, č, ď, é, í, ĺ, ľ, ň, ó, ô, ŕ, š, ť, ú, ý, ž | a, a, c, d, e, i, l, l, n, o, o, r, s, t, u, y, z |
 | **Czech** | á, č, ď, é, ě, í, ň, ó, ř, š, ť, ú, ů, ý, ž | a, c, d, e, e, i, n, o, r, s, t, u, u, y, z |
 | **Hungarian** | á, é, í, ó, ö, ő, ú, ü, ű | a, e, i, o, o, o, u, u, u |
-| **Serbian (Latin)** | č, ć, đ, š, ž | c, c, d, s, z |
+| **Serbian** | č, ć, đ, š, ž | c, c, d, s, z |
+| **Portuguese** | á, à, â, ã, é, ê, í, ó, ô, õ, ú, ç | a, a, a, a, e, e, i, o, o, o, u, c |
+| **Italian** | à, è, é, ì, ò, ù | a, e, e, i, o, u |
+| **Romanian** | ă, â, î, ș, ț | a, a, i, s, t |
+| **Turkish** | ç, ğ, ı, İ, ö, ş, ü | c, g, i, I, o, s, u |
+| **Danish** | æ, ø, å | ae, o, a |
+| **Norwegian** | æ, ø, å | ae, o, a |
+| **Finnish** | ä, ö | a, o |
+| **Icelandic** | á, é, í, ó, ú, ý, ð, þ, æ, ö | a, e, i, o, u, y, d, th, ae, o |
+| **Croatian** | č, ć, đ, š, ž | c, c, d, s, z |
+| **Slovenian** | č, š, ž | c, s, z |
+| **Lithuanian** | ą, č, ę, ė, į, š, ų, ū, ž | a, c, e, e, i, s, u, u, z |
+| **Latvian** | ā, č, ē, ģ, ī, ķ, ļ, ņ, š, ū, ž | a, c, e, g, i, k, l, n, s, u, z |
+| **Estonian** | ä, ö, ü, õ | a, o, u, o |
+| **Catalan** | à, é, è, í, ï, ó, ò, ú, ü, ç | a, e, e, i, i, o, o, u, u, c |
+| **Dutch** | ë, ï, é, ü | e, i, e, u |
+| **Welsh** | â, ê, î, ô, û, ŵ, ŷ | a, e, i, o, u, w, y |
 
 All languages include both lowercase and uppercase variants.
 
