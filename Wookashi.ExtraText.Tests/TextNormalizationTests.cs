@@ -1,3 +1,4 @@
+using System;
 using System.Diagnostics;
 using Wookashi.ExtraText.Normalize.Enums;
 using Xunit;

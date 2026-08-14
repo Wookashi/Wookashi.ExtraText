@@ -1,5 +1,4 @@
-﻿using System;
-namespace Wookashi.ExtraText.Normalize.Enums
+﻿namespace Wookashi.ExtraText.Normalize.Enums
 {
     public enum Language
     {
