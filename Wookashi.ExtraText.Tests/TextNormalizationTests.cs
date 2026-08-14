@@ -505,6 +505,39 @@ namespace Wookashi.ExtraText.Tests
 
         #endregion
 
+        #region Turkish - All Characters
+
+        [Theory]
+        [InlineData("ç", "c")]
+        [InlineData("Ç", "C")]
+        [InlineData("ğ", "g")]
+        [InlineData("Ğ", "G")]
+        [InlineData("ı", "i")]
+        [InlineData("İ", "I")]
+        [InlineData("ö", "o")]
+        [InlineData("Ö", "O")]
+        [InlineData("ş", "s")]
+        [InlineData("Ş", "S")]
+        [InlineData("ü", "u")]
+        [InlineData("Ü", "U")]
+        public void ReplaceDiacriticalMarks_Turkish_IndividualCharacters(string source, string expected)
+        {
+            var result = source.ReplaceDiacriticalMarks(Language.Turkish);
+            Assert.Equal(expected, result);
+        }
+
+        [Theory]
+        [InlineData("İstanbul", "Istanbul")]
+        [InlineData("Türkiye", "Turkiye")]
+        [InlineData("Teşekkürler", "Tesekkurler")]
+        public void ReplaceDiacriticalMarks_Turkish_Sentences(string source, string expected)
+        {
+            var result = source.ReplaceDiacriticalMarks(Language.Turkish);
+            Assert.Equal(expected, result);
+        }
+
+        #endregion
+
         #region Romanian - All Characters
 
         [Theory]
@@ -857,6 +890,16 @@ namespace Wookashi.ExtraText.Tests
             Assert.NotEqual(notExpected, result);
         }
 
+        [Theory]
+        [InlineData("ğ", "ğ", Language.Turkish)]
+        [InlineData("ş", "ş", Language.Turkish)]
+        [InlineData("ı", "ı", Language.Turkish)]
+        public void ReplaceDiacriticalMarks_Turkish_ResultDiffersFromSource(string source, string notExpected, Language language)
+        {
+            var result = source.ReplaceDiacriticalMarks(language);
+            Assert.NotEqual(notExpected, result);
+        }
+
         #endregion
 
         #region All Languages Enum Values Tested
@@ -874,6 +917,7 @@ namespace Wookashi.ExtraText.Tests
         [InlineData(Language.Portuguese)]
         [InlineData(Language.Italian)]
         [InlineData(Language.Romanian)]
+        [InlineData(Language.Turkish)]
         public void ReplaceDiacriticalMarks_AllLanguages_DoNotThrow(Language language)
         {
             const string input = "Test string with no diacritics";
@@ -894,6 +938,7 @@ namespace Wookashi.ExtraText.Tests
         [InlineData(Language.Portuguese)]
         [InlineData(Language.Italian)]
         [InlineData(Language.Romanian)]
+        [InlineData(Language.Turkish)]
         public void ReplaceDiacriticalMarks_AllLanguages_EmptyStringDoesNotThrow(Language language)
         {
             var exception = Record.Exception(() => "".ReplaceDiacriticalMarks(language));

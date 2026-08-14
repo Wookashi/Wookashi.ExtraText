@@ -245,6 +245,19 @@ namespace Wookashi.ExtraText.Normalize.Models
             new LanguageDiacriticalMark(Language.Romanian, "Ș", "S"),
             new LanguageDiacriticalMark(Language.Romanian, "ț", "t"),
             new LanguageDiacriticalMark(Language.Romanian, "Ț", "T"),
+            // Turkish
+            new LanguageDiacriticalMark(Language.Turkish, "ç", "c"),
+            new LanguageDiacriticalMark(Language.Turkish, "Ç", "C"),
+            new LanguageDiacriticalMark(Language.Turkish, "ğ", "g"),
+            new LanguageDiacriticalMark(Language.Turkish, "Ğ", "G"),
+            new LanguageDiacriticalMark(Language.Turkish, "ı", "i"),
+            new LanguageDiacriticalMark(Language.Turkish, "İ", "I"),
+            new LanguageDiacriticalMark(Language.Turkish, "ö", "o"),
+            new LanguageDiacriticalMark(Language.Turkish, "Ö", "O"),
+            new LanguageDiacriticalMark(Language.Turkish, "ş", "s"),
+            new LanguageDiacriticalMark(Language.Turkish, "Ş", "S"),
+            new LanguageDiacriticalMark(Language.Turkish, "ü", "u"),
+            new LanguageDiacriticalMark(Language.Turkish, "Ü", "U"),
         };
     }
 }
