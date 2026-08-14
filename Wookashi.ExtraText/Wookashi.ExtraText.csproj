@@ -16,7 +16,6 @@ Supported languages: Polish and German.</Description>
   </PropertyGroup>
     
   <ItemGroup>
-    <Folder Include="Normalize\Interfaces\" />
     <Folder Include="Normalize\Implementation\" />
     <Folder Include="Normalize\Enums\" />
   </ItemGroup>
