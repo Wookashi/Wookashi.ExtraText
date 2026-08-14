@@ -2,7 +2,6 @@
 Wookashi.ExtraText is an open-source, cross-platform very simple plugin allows you replace language specific diacritic marks to unified used globally.
 
 ## Getting Started
-Instalaltion and use is very simple.
 
 ### Installing
 You can install plugin in two ways:<br/>
