@@ -146,6 +146,20 @@ Contributions are welcome! If you have suggestions, bug reports, or want to add 
 
 Or contact me at l.hryciuk@outlook.com
 
+### Releasing (maintainers)
+
+Publishing to NuGet is automated via GitHub Actions (`.github/workflows/publish.yml`).
+To ship a release:
+
+1. Bump `<Version>` in `Wookashi.ExtraText/Wookashi.ExtraText.csproj` (and update `PackageReleaseNotes`)
+   and merge that change into `main`.
+2. Tag the released commit with a matching `vX.Y.Z` version (e.g. `git tag v2.3.0 && git push origin v2.3.0`).
+
+The workflow verifies the tag points at a commit on `main` and that the tag matches the csproj
+`<Version>` (it fails fast otherwise), builds, runs the test suite, packs the library, and pushes
+it to nuget.org. It requires a `NUGET_API_KEY` secret (a nuget.org API key) configured under the
+repository's **Settings → Secrets and variables → Actions**.
+
 ## Authors
 
 * **Lukas Hryciuk** - [Wookashi](https://github.com/LukaszHr)

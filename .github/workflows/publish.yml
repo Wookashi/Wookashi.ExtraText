@@ -1,0 +1,64 @@
+name: publish
+
+on:
+  push:
+    tags:
+      - "v[0-9]+.[0-9]+.[0-9]+"
+
+permissions:
+  contents: read
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      # Guards against tagging a commit on some other branch by mistake -
+      # the tag must point at a commit that is already on main.
+      - name: Verify tag is reachable from main
+        run: git merge-base --is-ancestor ${{ github.sha }} origin/main
+
+      - name: Extract version from tag
+        id: version
+        run: echo "version=${GITHUB_REF_NAME#v}" >> "$GITHUB_OUTPUT"
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "10.0.x"
+
+      # The csproj <Version> is the source of truth for the published package version.
+      # This fails fast if you tag a commit without having bumped it first.
+      - name: Verify tag matches csproj Version
+        run: |
+          CSPROJ_VERSION=$(dotnet msbuild Wookashi.ExtraText/Wookashi.ExtraText.csproj -getProperty:Version)
+          TAG_VERSION="${{ steps.version.outputs.version }}"
+          if [ "$CSPROJ_VERSION" != "$TAG_VERSION" ]; then
+            echo "::error::Tag v$TAG_VERSION does not match <Version>$CSPROJ_VERSION</Version> in Wookashi.ExtraText.csproj. Update the csproj Version to match and re-tag before publishing."
+            exit 1
+          fi
+
+      - name: Restore
+        run: dotnet restore
+
+      - name: Build
+        run: dotnet build --no-restore --configuration Release
+
+      - name: Test
+        run: dotnet test --no-build --configuration Release
+
+      - name: Pack
+        run: >
+          dotnet pack Wookashi.ExtraText/Wookashi.ExtraText.csproj
+          --no-build --configuration Release
+          --output ./artifacts
+
+      - name: Push to NuGet
+        run: >
+          dotnet nuget push "./artifacts/*.nupkg"
+          --api-key ${{ secrets.NUGET_API_KEY }}
+          --source https://api.nuget.org/v3/index.json
+          --skip-duplicate
