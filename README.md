@@ -146,33 +146,6 @@ Contributions are welcome! If you have suggestions, bug reports, or want to add 
 
 Or contact me at l.hryciuk@outlook.com
 
-### Releasing (maintainers)
-
-Publishing to NuGet is automated via GitHub Actions (`.github/workflows/publish.yml`).
-To ship a release:
-
-1. Bump `<Version>` in `Wookashi.ExtraText/Wookashi.ExtraText.csproj` (and update `PackageReleaseNotes`)
-   and merge that change into `main`.
-2. Tag the released commit with a matching `vX.Y.Z` version (e.g. `git tag v2.3.0 && git push origin v2.3.0`).
-
-The workflow verifies the tag points at a commit on `main` and that the tag matches the csproj
-`<Version>` (it fails fast otherwise), builds, runs the test suite, packs the library, and pushes
-it to nuget.org.
-
-Publishing uses [NuGet Trusted Publishing](https://learn.microsoft.com/en-us/nuget/nuget-org/trusted-publishing)
-(OIDC) instead of a long-lived API key — no NuGet secret to rotate. One-time setup:
-
-1. On nuget.org, go to your username → **Trusted Publishing** → add a policy with:
-   - **Repository Owner:** the GitHub org/user (e.g. `Wookashi`)
-   - **Repository:** `Wookashi.ExtraText`
-   - **Workflow File:** `publish.yml` (file name only, not the `.github/workflows/` path)
-   - **Environment:** leave empty (this workflow doesn't use a GitHub Actions environment)
-2. In the GitHub repo, add a repository secret named `NUGET_USER` containing your nuget.org
-   **username** (profile name, not email) under **Settings → Secrets and variables → Actions**.
-
-No other secret is needed — the workflow exchanges a short-lived GitHub OIDC token for a
-temporary (1 hour) nuget.org API key at publish time.
-
 ## Authors
 
 * **Lukas Hryciuk** - [Wookashi](https://github.com/LukaszHr)
