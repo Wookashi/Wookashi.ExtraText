@@ -388,6 +388,15 @@ namespace Wookashi.ExtraText.Normalize.Models
             new LanguageDiacriticalMark(Language.Catalan, "Ü", "U"),
             new LanguageDiacriticalMark(Language.Catalan, "ç", "c"),
             new LanguageDiacriticalMark(Language.Catalan, "Ç", "C"),
+            // Dutch
+            new LanguageDiacriticalMark(Language.Dutch, "ë", "e"),
+            new LanguageDiacriticalMark(Language.Dutch, "Ë", "E"),
+            new LanguageDiacriticalMark(Language.Dutch, "ï", "i"),
+            new LanguageDiacriticalMark(Language.Dutch, "Ï", "I"),
+            new LanguageDiacriticalMark(Language.Dutch, "é", "e"),
+            new LanguageDiacriticalMark(Language.Dutch, "É", "E"),
+            new LanguageDiacriticalMark(Language.Dutch, "ü", "u"),
+            new LanguageDiacriticalMark(Language.Dutch, "Ü", "U"),
         };
     }
 }

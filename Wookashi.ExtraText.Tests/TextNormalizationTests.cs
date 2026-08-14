@@ -505,6 +505,35 @@ namespace Wookashi.ExtraText.Tests
 
         #endregion
 
+        #region Dutch - All Characters
+
+        [Theory]
+        [InlineData("ë", "e")]
+        [InlineData("Ë", "E")]
+        [InlineData("ï", "i")]
+        [InlineData("Ï", "I")]
+        [InlineData("é", "e")]
+        [InlineData("É", "E")]
+        [InlineData("ü", "u")]
+        [InlineData("Ü", "U")]
+        public void ReplaceDiacriticalMarks_Dutch_IndividualCharacters(string source, string expected)
+        {
+            var result = source.ReplaceDiacriticalMarks(Language.Dutch);
+            Assert.Equal(expected, result);
+        }
+
+        [Theory]
+        [InlineData("België", "Belgie")]
+        [InlineData("geïnteresseerd", "geinteresseerd")]
+        [InlineData("café", "cafe")]
+        public void ReplaceDiacriticalMarks_Dutch_Sentences(string source, string expected)
+        {
+            var result = source.ReplaceDiacriticalMarks(Language.Dutch);
+            Assert.Equal(expected, result);
+        }
+
+        #endregion
+
         #region Catalan - All Characters
 
         [Theory]
@@ -1329,6 +1358,16 @@ namespace Wookashi.ExtraText.Tests
             Assert.NotEqual(notExpected, result);
         }
 
+        [Theory]
+        [InlineData("ë", "ë", Language.Dutch)]
+        [InlineData("ï", "ï", Language.Dutch)]
+        [InlineData("é", "é", Language.Dutch)]
+        public void ReplaceDiacriticalMarks_Dutch_ResultDiffersFromSource(string source, string notExpected, Language language)
+        {
+            var result = source.ReplaceDiacriticalMarks(language);
+            Assert.NotEqual(notExpected, result);
+        }
+
         #endregion
 
         #region All Languages Enum Values Tested
@@ -1357,6 +1396,7 @@ namespace Wookashi.ExtraText.Tests
         [InlineData(Language.Latvian)]
         [InlineData(Language.Estonian)]
         [InlineData(Language.Catalan)]
+        [InlineData(Language.Dutch)]
         public void ReplaceDiacriticalMarks_AllLanguages_DoNotThrow(Language language)
         {
             const string input = "Test string with no diacritics";
@@ -1388,6 +1428,7 @@ namespace Wookashi.ExtraText.Tests
         [InlineData(Language.Latvian)]
         [InlineData(Language.Estonian)]
         [InlineData(Language.Catalan)]
+        [InlineData(Language.Dutch)]
         public void ReplaceDiacriticalMarks_AllLanguages_EmptyStringDoesNotThrow(Language language)
         {
             var exception = Record.Exception(() => "".ReplaceDiacriticalMarks(language));
