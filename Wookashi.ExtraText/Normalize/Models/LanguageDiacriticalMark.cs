@@ -272,6 +272,11 @@ namespace Wookashi.ExtraText.Normalize.Models
             new LanguageDiacriticalMark(Language.Norwegian, "Ø", "O"),
             new LanguageDiacriticalMark(Language.Norwegian, "å", "a"),
             new LanguageDiacriticalMark(Language.Norwegian, "Å", "A"),
+            // Finnish
+            new LanguageDiacriticalMark(Language.Finnish, "ä", "a"),
+            new LanguageDiacriticalMark(Language.Finnish, "Ä", "A"),
+            new LanguageDiacriticalMark(Language.Finnish, "ö", "o"),
+            new LanguageDiacriticalMark(Language.Finnish, "Ö", "O"),
         };
     }
 }

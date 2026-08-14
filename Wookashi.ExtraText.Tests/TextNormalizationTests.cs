@@ -505,6 +505,31 @@ namespace Wookashi.ExtraText.Tests
 
         #endregion
 
+        #region Finnish - All Characters
+
+        [Theory]
+        [InlineData("ä", "a")]
+        [InlineData("Ä", "A")]
+        [InlineData("ö", "o")]
+        [InlineData("Ö", "O")]
+        public void ReplaceDiacriticalMarks_Finnish_IndividualCharacters(string source, string expected)
+        {
+            var result = source.ReplaceDiacriticalMarks(Language.Finnish);
+            Assert.Equal(expected, result);
+        }
+
+        [Theory]
+        [InlineData("Hyvää päivää", "Hyvaa paivaa")]
+        [InlineData("Jyväskylä", "Jyvaskyla")]
+        [InlineData("Öljy", "Oljy")]
+        public void ReplaceDiacriticalMarks_Finnish_Sentences(string source, string expected)
+        {
+            var result = source.ReplaceDiacriticalMarks(Language.Finnish);
+            Assert.Equal(expected, result);
+        }
+
+        #endregion
+
         #region Norwegian - All Characters
 
         [Theory]
@@ -974,6 +999,15 @@ namespace Wookashi.ExtraText.Tests
             Assert.NotEqual(notExpected, result);
         }
 
+        [Theory]
+        [InlineData("ä", "ä", Language.Finnish)]
+        [InlineData("ö", "ö", Language.Finnish)]
+        public void ReplaceDiacriticalMarks_Finnish_ResultDiffersFromSource(string source, string notExpected, Language language)
+        {
+            var result = source.ReplaceDiacriticalMarks(language);
+            Assert.NotEqual(notExpected, result);
+        }
+
         #endregion
 
         #region All Languages Enum Values Tested
@@ -994,6 +1028,7 @@ namespace Wookashi.ExtraText.Tests
         [InlineData(Language.Turkish)]
         [InlineData(Language.Danish)]
         [InlineData(Language.Norwegian)]
+        [InlineData(Language.Finnish)]
         public void ReplaceDiacriticalMarks_AllLanguages_DoNotThrow(Language language)
         {
             const string input = "Test string with no diacritics";
@@ -1017,6 +1052,7 @@ namespace Wookashi.ExtraText.Tests
         [InlineData(Language.Turkish)]
         [InlineData(Language.Danish)]
         [InlineData(Language.Norwegian)]
+        [InlineData(Language.Finnish)]
         public void ReplaceDiacriticalMarks_AllLanguages_EmptyStringDoesNotThrow(Language language)
         {
             var exception = Record.Exception(() => "".ReplaceDiacriticalMarks(language));
