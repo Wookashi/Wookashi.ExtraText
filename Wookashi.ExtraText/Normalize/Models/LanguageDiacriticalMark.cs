@@ -316,6 +316,25 @@ namespace Wookashi.ExtraText.Normalize.Models
             new LanguageDiacriticalMark(Language.Slovenian, "Š", "S"),
             new LanguageDiacriticalMark(Language.Slovenian, "ž", "z"),
             new LanguageDiacriticalMark(Language.Slovenian, "Ž", "Z"),
+            // Lithuanian
+            new LanguageDiacriticalMark(Language.Lithuanian, "ą", "a"),
+            new LanguageDiacriticalMark(Language.Lithuanian, "Ą", "A"),
+            new LanguageDiacriticalMark(Language.Lithuanian, "č", "c"),
+            new LanguageDiacriticalMark(Language.Lithuanian, "Č", "C"),
+            new LanguageDiacriticalMark(Language.Lithuanian, "ę", "e"),
+            new LanguageDiacriticalMark(Language.Lithuanian, "Ę", "E"),
+            new LanguageDiacriticalMark(Language.Lithuanian, "ė", "e"),
+            new LanguageDiacriticalMark(Language.Lithuanian, "Ė", "E"),
+            new LanguageDiacriticalMark(Language.Lithuanian, "į", "i"),
+            new LanguageDiacriticalMark(Language.Lithuanian, "Į", "I"),
+            new LanguageDiacriticalMark(Language.Lithuanian, "š", "s"),
+            new LanguageDiacriticalMark(Language.Lithuanian, "Š", "S"),
+            new LanguageDiacriticalMark(Language.Lithuanian, "ų", "u"),
+            new LanguageDiacriticalMark(Language.Lithuanian, "Ų", "U"),
+            new LanguageDiacriticalMark(Language.Lithuanian, "ū", "u"),
+            new LanguageDiacriticalMark(Language.Lithuanian, "Ū", "U"),
+            new LanguageDiacriticalMark(Language.Lithuanian, "ž", "z"),
+            new LanguageDiacriticalMark(Language.Lithuanian, "Ž", "Z"),
         };
     }
 }

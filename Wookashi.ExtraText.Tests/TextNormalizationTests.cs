@@ -505,6 +505,45 @@ namespace Wookashi.ExtraText.Tests
 
         #endregion
 
+        #region Lithuanian - All Characters
+
+        [Theory]
+        [InlineData("ą", "a")]
+        [InlineData("Ą", "A")]
+        [InlineData("č", "c")]
+        [InlineData("Č", "C")]
+        [InlineData("ę", "e")]
+        [InlineData("Ę", "E")]
+        [InlineData("ė", "e")]
+        [InlineData("Ė", "E")]
+        [InlineData("į", "i")]
+        [InlineData("Į", "I")]
+        [InlineData("š", "s")]
+        [InlineData("Š", "S")]
+        [InlineData("ų", "u")]
+        [InlineData("Ų", "U")]
+        [InlineData("ū", "u")]
+        [InlineData("Ū", "U")]
+        [InlineData("ž", "z")]
+        [InlineData("Ž", "Z")]
+        public void ReplaceDiacriticalMarks_Lithuanian_IndividualCharacters(string source, string expected)
+        {
+            var result = source.ReplaceDiacriticalMarks(Language.Lithuanian);
+            Assert.Equal(expected, result);
+        }
+
+        [Theory]
+        [InlineData("Vilnius", "Vilnius")]
+        [InlineData("Lietuva", "Lietuva")]
+        [InlineData("Ačiū", "Aciu")]
+        public void ReplaceDiacriticalMarks_Lithuanian_Sentences(string source, string expected)
+        {
+            var result = source.ReplaceDiacriticalMarks(Language.Lithuanian);
+            Assert.Equal(expected, result);
+        }
+
+        #endregion
+
         #region Slovenian - All Characters
 
         [Theory]
@@ -1137,6 +1176,16 @@ namespace Wookashi.ExtraText.Tests
             Assert.NotEqual(notExpected, result);
         }
 
+        [Theory]
+        [InlineData("ą", "ą", Language.Lithuanian)]
+        [InlineData("ė", "ė", Language.Lithuanian)]
+        [InlineData("ū", "ū", Language.Lithuanian)]
+        public void ReplaceDiacriticalMarks_Lithuanian_ResultDiffersFromSource(string source, string notExpected, Language language)
+        {
+            var result = source.ReplaceDiacriticalMarks(language);
+            Assert.NotEqual(notExpected, result);
+        }
+
         #endregion
 
         #region All Languages Enum Values Tested
@@ -1161,6 +1210,7 @@ namespace Wookashi.ExtraText.Tests
         [InlineData(Language.Icelandic)]
         [InlineData(Language.Croatian)]
         [InlineData(Language.Slovenian)]
+        [InlineData(Language.Lithuanian)]
         public void ReplaceDiacriticalMarks_AllLanguages_DoNotThrow(Language language)
         {
             const string input = "Test string with no diacritics";
@@ -1188,6 +1238,7 @@ namespace Wookashi.ExtraText.Tests
         [InlineData(Language.Icelandic)]
         [InlineData(Language.Croatian)]
         [InlineData(Language.Slovenian)]
+        [InlineData(Language.Lithuanian)]
         public void ReplaceDiacriticalMarks_AllLanguages_EmptyStringDoesNotThrow(Language language)
         {
             var exception = Record.Exception(() => "".ReplaceDiacriticalMarks(language));
