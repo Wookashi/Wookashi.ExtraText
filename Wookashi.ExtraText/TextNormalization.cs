@@ -17,5 +17,12 @@ namespace Wookashi.ExtraText
             if (sourceText is null) throw new ArgumentNullException(nameof(sourceText));
             return LanguageNormalizer.ReplaceDiacriticalMarks(sourceText, language);
         }
+
+        public static string ReplaceDiacriticalMarks(this string sourceText, params Language[] languages)
+        {
+            if (sourceText is null) throw new ArgumentNullException(nameof(sourceText));
+            if (languages == null || languages.Length == 0) return sourceText;
+            return LanguageNormalizer.ReplaceDiacriticalMarks(sourceText, languages);
+        }
     }
 }

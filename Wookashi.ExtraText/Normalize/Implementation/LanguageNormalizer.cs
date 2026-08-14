@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Wookashi.ExtraText.Normalize.Enums;
@@ -23,6 +24,18 @@ namespace Wookashi.ExtraText.Normalize.Implementation
             foreach (var dMark in LanguageDiacriticalMark.Marks.Where(x => x.Language == language))
             {
                 builder.Replace(dMark.Source, dMark.Target);
+            }
+            return builder.ToString();
+        }
+
+        internal static string ReplaceDiacriticalMarks(string text, Language[] languages)
+        {
+            var languageSet = new HashSet<Language>(languages);
+            var builder = new StringBuilder(text);
+            foreach (var dMark in LanguageDiacriticalMark.Marks)
+            {
+                if (languageSet.Contains(dMark.Language))
+                    builder.Replace(dMark.Source, dMark.Target);
             }
             return builder.ToString();
         }

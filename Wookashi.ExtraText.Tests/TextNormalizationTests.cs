@@ -1496,5 +1496,38 @@ namespace Wookashi.ExtraText.Tests
         }
 
         #endregion
+
+        #region Multi-Language Overload
+
+        [Fact]
+        public void ReplaceDiacriticalMarks_MultipleLanguages_ReplacesMarksFromAllSpecifiedLanguages()
+        {
+            var result = "żółć über".ReplaceDiacriticalMarks(Language.Polish, Language.German);
+            Assert.Equal("zolc ueber", result);
+        }
+
+        [Fact]
+        public void ReplaceDiacriticalMarks_MultipleLanguages_DoesNotReplaceUnspecifiedLanguageMarks()
+        {
+            // French 'é' should not be replaced when only Polish and German are specified
+            var result = "żółć über café".ReplaceDiacriticalMarks(Language.Polish, Language.German);
+            Assert.Equal("zolc ueber café", result);
+        }
+
+        [Fact]
+        public void ReplaceDiacriticalMarks_MultipleLanguages_EmptyLanguagesArrayReturnsUnchanged()
+        {
+            const string input = "żółć über";
+            var result = input.ReplaceDiacriticalMarks(new Language[0]);
+            Assert.Equal(input, result);
+        }
+
+        [Fact]
+        public void ReplaceDiacriticalMarks_MultipleLanguages_NullThrowsArgumentNullException()
+        {
+            Assert.Throws<ArgumentNullException>(() => ((string)null).ReplaceDiacriticalMarks(Language.Polish, Language.German));
+        }
+
+        #endregion
     }
 }
