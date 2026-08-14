@@ -505,6 +505,47 @@ namespace Wookashi.ExtraText.Tests
 
         #endregion
 
+        #region Icelandic - All Characters
+
+        [Theory]
+        [InlineData("á", "a")]
+        [InlineData("Á", "A")]
+        [InlineData("é", "e")]
+        [InlineData("É", "E")]
+        [InlineData("í", "i")]
+        [InlineData("Í", "I")]
+        [InlineData("ó", "o")]
+        [InlineData("Ó", "O")]
+        [InlineData("ú", "u")]
+        [InlineData("Ú", "U")]
+        [InlineData("ý", "y")]
+        [InlineData("Ý", "Y")]
+        [InlineData("ð", "d")]
+        [InlineData("Ð", "D")]
+        [InlineData("þ", "th")]
+        [InlineData("Þ", "Th")]
+        [InlineData("æ", "ae")]
+        [InlineData("Æ", "AE")]
+        [InlineData("ö", "o")]
+        [InlineData("Ö", "O")]
+        public void ReplaceDiacriticalMarks_Icelandic_IndividualCharacters(string source, string expected)
+        {
+            var result = source.ReplaceDiacriticalMarks(Language.Icelandic);
+            Assert.Equal(expected, result);
+        }
+
+        [Theory]
+        [InlineData("Reykjavík", "Reykjavik")]
+        [InlineData("Þórður", "Thordur")]
+        [InlineData("Eyjafjallajökull", "Eyjafjallajokull")]
+        public void ReplaceDiacriticalMarks_Icelandic_Sentences(string source, string expected)
+        {
+            var result = source.ReplaceDiacriticalMarks(Language.Icelandic);
+            Assert.Equal(expected, result);
+        }
+
+        #endregion
+
         #region Finnish - All Characters
 
         [Theory]
@@ -1008,6 +1049,16 @@ namespace Wookashi.ExtraText.Tests
             Assert.NotEqual(notExpected, result);
         }
 
+        [Theory]
+        [InlineData("ð", "ð", Language.Icelandic)]
+        [InlineData("þ", "þ", Language.Icelandic)]
+        [InlineData("æ", "æ", Language.Icelandic)]
+        public void ReplaceDiacriticalMarks_Icelandic_ResultDiffersFromSource(string source, string notExpected, Language language)
+        {
+            var result = source.ReplaceDiacriticalMarks(language);
+            Assert.NotEqual(notExpected, result);
+        }
+
         #endregion
 
         #region All Languages Enum Values Tested
@@ -1029,6 +1080,7 @@ namespace Wookashi.ExtraText.Tests
         [InlineData(Language.Danish)]
         [InlineData(Language.Norwegian)]
         [InlineData(Language.Finnish)]
+        [InlineData(Language.Icelandic)]
         public void ReplaceDiacriticalMarks_AllLanguages_DoNotThrow(Language language)
         {
             const string input = "Test string with no diacritics";
@@ -1053,6 +1105,7 @@ namespace Wookashi.ExtraText.Tests
         [InlineData(Language.Danish)]
         [InlineData(Language.Norwegian)]
         [InlineData(Language.Finnish)]
+        [InlineData(Language.Icelandic)]
         public void ReplaceDiacriticalMarks_AllLanguages_EmptyStringDoesNotThrow(Language language)
         {
             var exception = Record.Exception(() => "".ReplaceDiacriticalMarks(language));

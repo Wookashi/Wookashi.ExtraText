@@ -277,6 +277,27 @@ namespace Wookashi.ExtraText.Normalize.Models
             new LanguageDiacriticalMark(Language.Finnish, "Ä", "A"),
             new LanguageDiacriticalMark(Language.Finnish, "ö", "o"),
             new LanguageDiacriticalMark(Language.Finnish, "Ö", "O"),
+            // Icelandic
+            new LanguageDiacriticalMark(Language.Icelandic, "á", "a"),
+            new LanguageDiacriticalMark(Language.Icelandic, "Á", "A"),
+            new LanguageDiacriticalMark(Language.Icelandic, "é", "e"),
+            new LanguageDiacriticalMark(Language.Icelandic, "É", "E"),
+            new LanguageDiacriticalMark(Language.Icelandic, "í", "i"),
+            new LanguageDiacriticalMark(Language.Icelandic, "Í", "I"),
+            new LanguageDiacriticalMark(Language.Icelandic, "ó", "o"),
+            new LanguageDiacriticalMark(Language.Icelandic, "Ó", "O"),
+            new LanguageDiacriticalMark(Language.Icelandic, "ú", "u"),
+            new LanguageDiacriticalMark(Language.Icelandic, "Ú", "U"),
+            new LanguageDiacriticalMark(Language.Icelandic, "ý", "y"),
+            new LanguageDiacriticalMark(Language.Icelandic, "Ý", "Y"),
+            new LanguageDiacriticalMark(Language.Icelandic, "ð", "d"),
+            new LanguageDiacriticalMark(Language.Icelandic, "Ð", "D"),
+            new LanguageDiacriticalMark(Language.Icelandic, "þ", "th"),
+            new LanguageDiacriticalMark(Language.Icelandic, "Þ", "Th"),
+            new LanguageDiacriticalMark(Language.Icelandic, "æ", "ae"),
+            new LanguageDiacriticalMark(Language.Icelandic, "Æ", "AE"),
+            new LanguageDiacriticalMark(Language.Icelandic, "ö", "o"),
+            new LanguageDiacriticalMark(Language.Icelandic, "Ö", "O"),
         };
     }
 }
