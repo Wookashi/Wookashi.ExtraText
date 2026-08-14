@@ -367,6 +367,27 @@ namespace Wookashi.ExtraText.Normalize.Models
             new LanguageDiacriticalMark(Language.Estonian, "Ü", "U"),
             new LanguageDiacriticalMark(Language.Estonian, "õ", "o"),
             new LanguageDiacriticalMark(Language.Estonian, "Õ", "O"),
+            // Catalan
+            new LanguageDiacriticalMark(Language.Catalan, "à", "a"),
+            new LanguageDiacriticalMark(Language.Catalan, "À", "A"),
+            new LanguageDiacriticalMark(Language.Catalan, "é", "e"),
+            new LanguageDiacriticalMark(Language.Catalan, "É", "E"),
+            new LanguageDiacriticalMark(Language.Catalan, "è", "e"),
+            new LanguageDiacriticalMark(Language.Catalan, "È", "E"),
+            new LanguageDiacriticalMark(Language.Catalan, "í", "i"),
+            new LanguageDiacriticalMark(Language.Catalan, "Í", "I"),
+            new LanguageDiacriticalMark(Language.Catalan, "ï", "i"),
+            new LanguageDiacriticalMark(Language.Catalan, "Ï", "I"),
+            new LanguageDiacriticalMark(Language.Catalan, "ó", "o"),
+            new LanguageDiacriticalMark(Language.Catalan, "Ó", "O"),
+            new LanguageDiacriticalMark(Language.Catalan, "ò", "o"),
+            new LanguageDiacriticalMark(Language.Catalan, "Ò", "O"),
+            new LanguageDiacriticalMark(Language.Catalan, "ú", "u"),
+            new LanguageDiacriticalMark(Language.Catalan, "Ú", "U"),
+            new LanguageDiacriticalMark(Language.Catalan, "ü", "u"),
+            new LanguageDiacriticalMark(Language.Catalan, "Ü", "U"),
+            new LanguageDiacriticalMark(Language.Catalan, "ç", "c"),
+            new LanguageDiacriticalMark(Language.Catalan, "Ç", "C"),
         };
     }
 }

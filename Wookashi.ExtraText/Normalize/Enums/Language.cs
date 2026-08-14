@@ -24,6 +24,7 @@ namespace Wookashi.ExtraText.Normalize.Enums
         Slovenian = 19,
         Lithuanian = 20,
         Latvian = 21,
-        Estonian = 22
+        Estonian = 22,
+        Catalan = 23
     }
 }
