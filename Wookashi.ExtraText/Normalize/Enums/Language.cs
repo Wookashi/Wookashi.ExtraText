@@ -22,6 +22,7 @@ namespace Wookashi.ExtraText.Normalize.Enums
         Icelandic = 17,
         Croatian = 18,
         Slovenian = 19,
-        Lithuanian = 20
+        Lithuanian = 20,
+        Latvian = 21
     }
 }
