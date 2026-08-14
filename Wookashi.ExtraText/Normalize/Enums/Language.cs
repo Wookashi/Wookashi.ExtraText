@@ -26,6 +26,7 @@ namespace Wookashi.ExtraText.Normalize.Enums
         Latvian = 21,
         Estonian = 22,
         Catalan = 23,
-        Dutch = 24
+        Dutch = 24,
+        Welsh = 25
     }
 }

@@ -505,6 +505,41 @@ namespace Wookashi.ExtraText.Tests
 
         #endregion
 
+        #region Welsh - All Characters
+
+        [Theory]
+        [InlineData("â", "a")]
+        [InlineData("Â", "A")]
+        [InlineData("ê", "e")]
+        [InlineData("Ê", "E")]
+        [InlineData("î", "i")]
+        [InlineData("Î", "I")]
+        [InlineData("ô", "o")]
+        [InlineData("Ô", "O")]
+        [InlineData("û", "u")]
+        [InlineData("Û", "U")]
+        [InlineData("ŵ", "w")]
+        [InlineData("Ŵ", "W")]
+        [InlineData("ŷ", "y")]
+        [InlineData("Ŷ", "Y")]
+        public void ReplaceDiacriticalMarks_Welsh_IndividualCharacters(string source, string expected)
+        {
+            var result = source.ReplaceDiacriticalMarks(Language.Welsh);
+            Assert.Equal(expected, result);
+        }
+
+        [Theory]
+        [InlineData("Cymru", "Cymru")]
+        [InlineData("tŷ", "ty")]
+        [InlineData("Gwŷdd", "Gwydd")]
+        public void ReplaceDiacriticalMarks_Welsh_Sentences(string source, string expected)
+        {
+            var result = source.ReplaceDiacriticalMarks(Language.Welsh);
+            Assert.Equal(expected, result);
+        }
+
+        #endregion
+
         #region Dutch - All Characters
 
         [Theory]
@@ -1368,6 +1403,16 @@ namespace Wookashi.ExtraText.Tests
             Assert.NotEqual(notExpected, result);
         }
 
+        [Theory]
+        [InlineData("â", "â", Language.Welsh)]
+        [InlineData("ŵ", "ŵ", Language.Welsh)]
+        [InlineData("ŷ", "ŷ", Language.Welsh)]
+        public void ReplaceDiacriticalMarks_Welsh_ResultDiffersFromSource(string source, string notExpected, Language language)
+        {
+            var result = source.ReplaceDiacriticalMarks(language);
+            Assert.NotEqual(notExpected, result);
+        }
+
         #endregion
 
         #region All Languages Enum Values Tested
@@ -1397,6 +1442,7 @@ namespace Wookashi.ExtraText.Tests
         [InlineData(Language.Estonian)]
         [InlineData(Language.Catalan)]
         [InlineData(Language.Dutch)]
+        [InlineData(Language.Welsh)]
         public void ReplaceDiacriticalMarks_AllLanguages_DoNotThrow(Language language)
         {
             const string input = "Test string with no diacritics";
@@ -1429,6 +1475,7 @@ namespace Wookashi.ExtraText.Tests
         [InlineData(Language.Estonian)]
         [InlineData(Language.Catalan)]
         [InlineData(Language.Dutch)]
+        [InlineData(Language.Welsh)]
         public void ReplaceDiacriticalMarks_AllLanguages_EmptyStringDoesNotThrow(Language language)
         {
             var exception = Record.Exception(() => "".ReplaceDiacriticalMarks(language));
