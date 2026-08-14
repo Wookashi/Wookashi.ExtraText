@@ -16,6 +16,7 @@ namespace Wookashi.ExtraText.Normalize.Enums
         Italian = 11,
         Romanian = 12,
         Turkish = 13,
-        Danish = 14
+        Danish = 14,
+        Norwegian = 15
     }
 }
