@@ -5,19 +5,17 @@ namespace Wookashi.ExtraText
 {
     public static class TextNormalization
     {
-        public static string ReplaceDiactricMarks(this string sourceText)
+        public static string ReplaceDiacriticalMarks(this string sourceText)
         {
-            var result = string.Empty;
-            var normalizator = new LanguageNormalizator();
-            result = normalizator.RemoveDiactricMarks(sourceText);
+            var normalizer = new LanguageNormalizer();
+            var result = normalizer.ReplaceDiacriticalMarks(sourceText);
             return result;
         }
 
-        public static string ReplaceDiactricMarks(this string sourceText, Language language)
+        public static string ReplaceDiacriticalMarks(this string sourceText, Language language)
         {
-            var result = string.Empty;
-            var normalizator = new LanguageNormalizator();
-            result = normalizator.RemoveDiactricMarks(sourceText, language);
+            var normalizer = new LanguageNormalizer();
+            var result = normalizer.ReplaceDiacriticalMarks(sourceText, language);
             return result;
         }
     }
