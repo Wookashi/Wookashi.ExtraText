@@ -9,7 +9,7 @@ namespace Wookashi.ExtraText.Normalize.Models
         public string Source { get; }
         public string Target { get; }
 
-        public LanguageDiacriticalMark(Language language, string source, string target)
+        private LanguageDiacriticalMark(Language language, string source, string target)
         {
             Language = language;
             Source = source;
@@ -43,7 +43,7 @@ namespace Wookashi.ExtraText.Normalize.Models
                 new LanguageDiacriticalMark(Language.German, "Ö", "Ae"),
                 new LanguageDiacriticalMark(Language.German, "ü", "Oe"),
                 new LanguageDiacriticalMark(Language.German, "Ü", "Ue"),
-                new LanguageDiacriticalMark(Language.German, "ß", "ss"),
+                new LanguageDiacriticalMark(Language.German, "ß", "ss")
         };
     }
 }

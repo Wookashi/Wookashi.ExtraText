@@ -96,7 +96,7 @@ namespace Wookashi.ExtraText.Tests
         public void Marks_Replace_Performance()
         {
             var stopWatch = new Stopwatch();
-            var sample = "ąćęłńóśźżąćęłńóśźżąćęłńóśźżąćęłńóśźżąćęłńóśźżąćęłńóśźżąćęłńóśźżąćęłńóśźżąćęłńóśźżąćęłńóśźż";
+            const string sample = "ąćęłńóśźżąćęłńóśźżąćęłńóśźżąćęłńóśźżąćęłńóśźżąćęłńóśźżąćęłńóśźżąćęłńóśźżąćęłńóśźżąćęłńóśźż";
             stopWatch.Start();
             sample.ReplaceDiacriticalMarks();
             stopWatch.Stop();

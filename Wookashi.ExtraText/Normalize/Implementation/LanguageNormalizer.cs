@@ -8,9 +8,6 @@ namespace Wookashi.ExtraText.Normalize.Implementation
 {
     public class LanguageNormalizer : ILanguageNormalizer
     {
-        public LanguageNormalizer()
-        {
-        }
 
         public string ReplaceDiacriticalMarks(string text)
         {
