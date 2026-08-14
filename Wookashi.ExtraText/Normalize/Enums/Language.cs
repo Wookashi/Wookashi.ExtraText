@@ -13,6 +13,7 @@ namespace Wookashi.ExtraText.Normalize.Enums
         Hungarian = 8,
         Serbian = 9,
         Portuguese = 10,
-        Italian = 11
+        Italian = 11,
+        Romanian = 12
     }
 }
