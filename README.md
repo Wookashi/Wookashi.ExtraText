@@ -157,8 +157,21 @@ To ship a release:
 
 The workflow verifies the tag points at a commit on `main` and that the tag matches the csproj
 `<Version>` (it fails fast otherwise), builds, runs the test suite, packs the library, and pushes
-it to nuget.org. It requires a `NUGET_API_KEY` secret (a nuget.org API key) configured under the
-repository's **Settings → Secrets and variables → Actions**.
+it to nuget.org.
+
+Publishing uses [NuGet Trusted Publishing](https://learn.microsoft.com/en-us/nuget/nuget-org/trusted-publishing)
+(OIDC) instead of a long-lived API key — no NuGet secret to rotate. One-time setup:
+
+1. On nuget.org, go to your username → **Trusted Publishing** → add a policy with:
+   - **Repository Owner:** the GitHub org/user (e.g. `Wookashi`)
+   - **Repository:** `Wookashi.ExtraText`
+   - **Workflow File:** `publish.yml` (file name only, not the `.github/workflows/` path)
+   - **Environment:** leave empty (this workflow doesn't use a GitHub Actions environment)
+2. In the GitHub repo, add a repository secret named `NUGET_USER` containing your nuget.org
+   **username** (profile name, not email) under **Settings → Secrets and variables → Actions**.
+
+No other secret is needed — the workflow exchanges a short-lived GitHub OIDC token for a
+temporary (1 hour) nuget.org API key at publish time.
 
 ## Authors
 
