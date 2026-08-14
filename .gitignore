@@ -45,9 +45,6 @@ TestResult.xml
 [Rr]eleasePS/
 dlldata.c
 
-# Benchmark Results
-BenchmarkDotNet.Artifacts/
-
 # .NET Core
 project.lock.json
 project.fragment.lock.json
@@ -108,25 +105,10 @@ ipch/
 # Visual Studio Trace Files
 *.e2e
 
-# TFS 2012 Local Workspace
-$tf/
-
-# Guidance Automation Toolkit
-*.gpState
-
 # ReSharper is a .NET coding add-in
 _ReSharper*/
 *.[Rr]e[Ss]harper
 *.DotSettings.user
-
-# JustCode is a .NET coding add-in
-.JustCode
-
-# TeamCity is a build add-in
-_TeamCity*
-
-# DotCover is a Code Coverage Tool
-*.dotCover
 
 # AxoCover is a Code Coverage Tool
 .axoCover/*
@@ -135,31 +117,6 @@ _TeamCity*
 # Visual Studio code coverage results
 *.coverage
 *.coveragexml
-
-# NCrunch
-_NCrunch_*
-.*crunch*.local.xml
-nCrunchTemp_*
-
-# MightyMoose
-*.mm.*
-AutoTest.Net/
-
-# Web workbench (sass)
-.sass-cache/
-
-# Installshield output folder
-[Ee]xpress/
-
-# DocProject is a documentation generator add-in
-DocProject/buildhelp/
-DocProject/Help/*.HxT
-DocProject/Help/*.HxC
-DocProject/Help/*.hhc
-DocProject/Help/*.hhk
-DocProject/Help/*.hhp
-DocProject/Help/Html2
-DocProject/Help/html
 
 # Click-Once directory
 publish/
@@ -171,11 +128,6 @@ publish/
 # but database connection strings (with potential passwords) will be unencrypted
 *.pubxml
 *.publishproj
-
-# Microsoft Azure Web App publish settings. Comment the next line if you want to
-# checkin your Azure Web App publish settings, but sensitive information contained
-# in these scripts will be unencrypted
-PublishScripts/
 
 # NuGet Packages
 *.nupkg
@@ -192,17 +144,6 @@ PublishScripts/
 # Microsoft Azure Build Output
 csx/
 *.build.csdef
-
-# Microsoft Azure Emulator
-ecf/
-rcf/
-
-# Windows Store app package directories and files
-AppPackages/
-BundleArtifacts/
-Package.StoreAssociation.xml
-_pkginfo.txt
-*.appx
 
 # Visual Studio cache files
 # files ending in .cache can be ignored
@@ -221,14 +162,6 @@ ClientBin/
 *.publishsettings
 orleans.codegen.cs
 
-# Including strong name files can present a security risk 
-# (https://github.com/github/gitignore/pull/2483#issue-259490424)
-#*.snk
-
-# Since there are multiple workflows, uncomment next line to ignore bower_components
-# (https://github.com/github/gitignore/pull/1529#issuecomment-104372622)
-#bower_components/
-
 # RIA/Silverlight projects
 Generated_Code/
 
@@ -241,23 +174,6 @@ UpgradeLog*.XML
 UpgradeLog*.htm
 ServiceFabricBackup/
 *.rptproj.bak
-
-# SQL Server files
-*.mdf
-*.ldf
-*.ndf
-
-# Business Intelligence projects
-*.rdl.data
-*.bim.layout
-*.bim_*.settings
-*.rptproj.rsuser
-
-# Microsoft Fakes
-FakesAssemblies/
-
-# GhostDoc plugin setting file
-*.GhostDoc.xml
 
 # Node.js Tools for Visual Studio
 .ntvs_analysis.dat
@@ -284,29 +200,16 @@ _Pvt_Extensions
 .paket/paket.exe
 paket-files/
 
-# FAKE - F# Make
-.fake/
-
 # JetBrains Rider
 .idea/
 *.sln.iml
-
-# CodeRush
-.cr/
 
 # Python Tools for Visual Studio (PTVS)
 __pycache__/
 *.pyc
 
-# Cake - Uncomment if you are using it
-# tools/**
-# !tools/packages.config
-
 # Tabs Studio
 *.tss
-
-# Telerik's JustMock configuration file
-*.jmconfig
 
 # BizTalk build output
 *.btp.cs
@@ -314,20 +217,4 @@ __pycache__/
 *.odx.cs
 *.xsd.cs
 
-# OpenCover UI analysis results
-OpenCover/
-
-# Azure Stream Analytics local run output 
-ASALocalRun/
-
-# MSBuild Binary and Structured Log
-*.binlog
-
-# NVidia Nsight GPU debugger configuration file
-*.nvuser
-
-# MFractors (Xamarin productivity tool) working folder 
-.mfractor/
-/Wookashi.ExtraText/Images/icon.png
-/Wookashi.ExtraText/Wookashi.ExtraText.nuspec
 /Wookashi.ExtraText/nuget.exe
