@@ -10,7 +10,7 @@
         <license type="expression">MIT</license>
         <licenseUrl>https://licenses.nuget.org/MIT</licenseUrl>
         <description>Simple package to replace diacritical marks in text.
-            Supported languages: Polish and German.
+            Supported languages: Polish, German, French and Czech.
         </description>
         <releaseNotes>Code cleanup, update nuget packages.</releaseNotes>
         <copyright>Copyright ©2019 Lucas Hryciuk</copyright>
