@@ -56,6 +56,15 @@ using Wookashi.ExtraText.Normalize.Enums;
 "señor".ReplaceDiacriticalMarks(Language.Spanish);  // Returns "senor"
 ```
 
+### Replace Marks for Multiple Languages
+Replaces marks from a specific set of languages only:
+```csharp
+using Wookashi.ExtraText.Normalize.Enums;
+
+"żółć über café".ReplaceDiacriticalMarks(Language.Polish, Language.German);
+// Returns "zolc ueber café"  (French 'é' is untouched)
+```
+
 ### Complete Example
 ```csharp
 using System;

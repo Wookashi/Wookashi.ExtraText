@@ -11,9 +11,9 @@ Wookashi.ExtraText/
 │   │   ├── Enums/
 │   │   │   └── Language.cs             # Supported languages enum
 │   │   ├── Implementation/
-│   │   │   └── LanguageNormalizer.cs   # Core normalization logic
+│   │   │   └── LanguageNormalizer.cs   # Core normalization logic (static)
 │   │   └── Models/
-│   │       └── LanguageDiacriticalMark.cs  # Character mappings (~200+)
+│   │       └── LanguageDiacriticalMark.cs  # Character mappings (~400+)
 │   ├── TextNormalization.cs            # Public API (extension methods)
 │   └── Wookashi.ExtraText.csproj       # Project configuration
 │
@@ -28,19 +28,19 @@ Wookashi.ExtraText/
 
 | File | Purpose |
 |------|---------|
-| `TextNormalization.cs` | Public API with extension methods: `ReplaceDiacriticalMarks()` and `ReplaceDiacriticalMarks(Language)` |
-| `LanguageNormalizer.cs` | Internal sealed class with core replacement logic using StringBuilder |
-| `LanguageDiacriticalMark.cs` | Defines mappings between diacritical characters and replacements |
+| `TextNormalization.cs` | Public API with extension methods: `ReplaceDiacriticalMarks()`, `ReplaceDiacriticalMarks(Language)`, `ReplaceDiacriticalMarks(params Language[])` |
+| `LanguageNormalizer.cs` | Internal static class with core replacement logic using StringBuilder |
+| `LanguageDiacriticalMark.cs` | Static readonly list of mappings between diacritical characters and replacements |
 | `Language.cs` | Enum of supported languages |
 
 ## Technologies
 - **.NET Standard 2.0** - Cross-platform compatibility (supports .NET Framework 4.6.1+, .NET Core 2.0+, .NET 5+)
-- **.NET 9.0** - Test project runtime
+- **.NET 10.0** - Test project runtime
 - **XUnit 2.9.3** - Testing framework
 - **StringBuilder** - Efficient string manipulation
 - **C# Latest** - Modern language features
 
-## Supported Languages (9)
+## Supported Languages (25)
 1. Polish - 18 marks (ą, ć, ę, ł, ń, ó, ś, ź, ż)
 2. German - 7 marks (ä, ö, ü, ß)
 3. French - 30+ marks (à, â, é, è, ê, ë, ç, etc.)
@@ -50,14 +50,30 @@ Wookashi.ExtraText/
 7. Czech - 28 marks (á, č, ď, é, ě, í, ň, ó, ř, š, ť, ú, ů, ý, ž)
 8. Hungarian - 18 marks (á, é, í, ó, ö, ő, ú, ü, ű)
 9. Serbian (Latin) - 10 marks (č, ć, đ, š, ž)
+10. Portuguese - 23 marks (á, à, â, ã, é, ê, í, ó, ô, õ, ú, ç)
+11. Italian - 12 marks (à, è, é, ì, ò, ù)
+12. Romanian - 10 marks (ă, â, î, ș, ț)
+13. Turkish - 12 marks (ç, ğ, ı, İ, ö, ş, ü)
+14. Danish - 6 marks (æ, ø, å)
+15. Norwegian - 6 marks (æ, ø, å)
+16. Finnish - 4 marks (ä, ö)
+17. Icelandic - 20 marks (á, é, í, ó, ú, ý, ð, þ, æ, ö)
+18. Croatian - 10 marks (č, ć, đ, š, ž)
+19. Slovenian - 6 marks (č, š, ž)
+20. Lithuanian - 18 marks (ą, č, ę, ė, į, š, ų, ū, ž)
+21. Latvian - 22 marks (ā, č, ē, ģ, ī, ķ, ļ, ņ, š, ū, ž)
+22. Estonian - 8 marks (ä, ö, ü, õ)
+23. Catalan - 20 marks (à, é, è, í, ï, ó, ò, ú, ü, ç)
+24. Dutch - 8 marks (ë, ï, é, ü)
+25. Welsh - 14 marks (â, ê, î, ô, û, ŵ, ŷ)
 
 ## Architecture
 
 ### Design Patterns
 - **Extension Methods** - Extends `string` class with normalization capabilities
-- **Sealed Classes** - `LanguageNormalizer` and `LanguageDiacriticalMark` for performance
-- **Static Data Pattern** - Centralized character mappings in `LanguageDiacriticalMark.Marks`
-- **Strategy Pattern** - Two overloads for different normalization strategies
+- **Static Classes** - `LanguageNormalizer` (static) and `LanguageDiacriticalMark` (sealed) for performance
+- **Static Data Pattern** - Centralized static readonly character mappings in `LanguageDiacriticalMark.Marks`
+- **Strategy Pattern** - Three overloads for different normalization strategies
 
 ### Layers
 1. **Extension Methods Layer** (`TextNormalization.cs`) - Public API
@@ -71,13 +87,17 @@ Wookashi.ExtraText/
 
 // Replace language-specific marks only
 "über".ReplaceDiacriticalMarks(Language.German);  // Returns "ueber"
+
+// Replace marks for multiple specific languages
+"żółć über café".ReplaceDiacriticalMarks(Language.Polish, Language.German);  // Returns "zolc ueber café"
 ```
 
 ## Testing
 - XUnit with `[Theory]` and `[InlineData]` attributes
-- 100+ individual test cases across 9 languages
+- 100+ individual test cases across all 25 languages
 - Success and failure scenarios
 - Language isolation validation
+- Null input validation
 - Performance testing (< 1ms for 80-character string)
 
 ## Package Info
