@@ -309,6 +309,13 @@ namespace Wookashi.ExtraText.Normalize.Models
             new LanguageDiacriticalMark(Language.Croatian, "Š", "S"),
             new LanguageDiacriticalMark(Language.Croatian, "ž", "z"),
             new LanguageDiacriticalMark(Language.Croatian, "Ž", "Z"),
+            // Slovenian
+            new LanguageDiacriticalMark(Language.Slovenian, "č", "c"),
+            new LanguageDiacriticalMark(Language.Slovenian, "Č", "C"),
+            new LanguageDiacriticalMark(Language.Slovenian, "š", "s"),
+            new LanguageDiacriticalMark(Language.Slovenian, "Š", "S"),
+            new LanguageDiacriticalMark(Language.Slovenian, "ž", "z"),
+            new LanguageDiacriticalMark(Language.Slovenian, "Ž", "Z"),
         };
     }
 }

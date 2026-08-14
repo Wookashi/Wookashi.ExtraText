@@ -20,6 +20,7 @@ namespace Wookashi.ExtraText.Normalize.Enums
         Norwegian = 15,
         Finnish = 16,
         Icelandic = 17,
-        Croatian = 18
+        Croatian = 18,
+        Slovenian = 19
     }
 }
