@@ -85,6 +85,18 @@ namespace Wookashi.ExtraText.Tests
             Assert.Equal("xay", "xąy".ReplaceDiacriticalMarks());
         }
 
+        [Fact]
+        public void ReplaceDiacriticalMarks_NullString_ThrowsArgumentNullException()
+        {
+            Assert.Throws<ArgumentNullException>(() => ((string)null).ReplaceDiacriticalMarks());
+        }
+
+        [Fact]
+        public void ReplaceDiacriticalMarks_WithLanguage_NullString_ThrowsArgumentNullException()
+        {
+            Assert.Throws<ArgumentNullException>(() => ((string)null).ReplaceDiacriticalMarks(Language.Polish));
+        }
+
         #endregion
 
         #region Polish - All Characters

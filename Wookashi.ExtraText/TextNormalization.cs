@@ -6,10 +6,16 @@ namespace Wookashi.ExtraText
 {
     public static class TextNormalization
     {
-        public static string ReplaceDiacriticalMarks(this string sourceText) =>
-            LanguageNormalizer.ReplaceDiacriticalMarks(sourceText);
+        public static string ReplaceDiacriticalMarks(this string sourceText)
+        {
+            if (sourceText is null) throw new ArgumentNullException(nameof(sourceText));
+            return LanguageNormalizer.ReplaceDiacriticalMarks(sourceText);
+        }
 
-        public static string ReplaceDiacriticalMarks(this string sourceText, Language language) =>
-            LanguageNormalizer.ReplaceDiacriticalMarks(sourceText, language);
+        public static string ReplaceDiacriticalMarks(this string sourceText, Language language)
+        {
+            if (sourceText is null) throw new ArgumentNullException(nameof(sourceText));
+            return LanguageNormalizer.ReplaceDiacriticalMarks(sourceText, language);
+        }
     }
 }
