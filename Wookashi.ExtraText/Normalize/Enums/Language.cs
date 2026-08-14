@@ -11,6 +11,7 @@ namespace Wookashi.ExtraText.Normalize.Enums
         Slovak = 6,
         Czech = 7,
         Hungarian = 8,
-        Serbian = 9
+        Serbian = 9,
+        Portuguese = 10
     }
 }
