@@ -91,6 +91,172 @@ namespace Wookashi.ExtraText.Tests
             var result = sourceText.ReplaceDiacriticalMarks(language);
             Assert.NotEqual(resultText, result);
         }
+        
+        [Theory]
+        [InlineData("é", "e")]
+        [InlineData("è", "e")]
+        [InlineData("ê", "e")]
+        [InlineData("ë", "e")]
+        [InlineData("ç", "c")]
+        [InlineData("â", "a")]
+        [InlineData("î", "i")]
+        [InlineData("ô", "o")]
+        [InlineData("ù", "u")]
+        [InlineData("Élève très sérieux.", "Eleve tres serieux.")]
+        public void ReplaceDiacriticalMarks_French_Pass(string sourceText, string resultText)
+        {
+            var result = sourceText.ReplaceDiacriticalMarks(Language.French);
+            Assert.Equal(resultText, result);
+        }
+
+        [Theory]
+        [InlineData("é", "é", Language.French)]
+        [InlineData("ç", "ç", Language.French)]
+        [InlineData("Élève très sérieux.", "Élève très sérieux.", Language.French)]
+        public void ReplaceDiacriticalMarks_French_Fail(string sourceText, string resultText, Language language)
+        {
+            var result = sourceText.ReplaceDiacriticalMarks(language);
+            Assert.NotEqual(resultText, result);
+        }
+        
+        [Theory]
+        [InlineData("á", "a")]
+        [InlineData("é", "e")]
+        [InlineData("í", "i")]
+        [InlineData("ó", "o")]
+        [InlineData("ú", "u")]
+        [InlineData("ñ", "n")]
+        [InlineData("¿Qué tal, señor?", "¿Que tal, senor?")]
+        public void ReplaceDiacriticalMarks_Spanish_Pass(string sourceText, string resultText)
+        {
+            var result = sourceText.ReplaceDiacriticalMarks(Language.Spanish);
+            Assert.Equal(resultText, result);
+        }
+
+        [Theory]
+        [InlineData("á", "á", Language.Spanish)]
+        [InlineData("ñ", "ñ", Language.Spanish)]
+        [InlineData("¿Qué tal, señor?", "¿Qué tal, señor?", Language.Spanish)]
+        public void ReplaceDiacriticalMarks_Spanish_Fail(string sourceText, string resultText, Language language)
+        {
+            var result = sourceText.ReplaceDiacriticalMarks(language);
+            Assert.NotEqual(resultText, result);
+        }
+        
+        [Theory]
+        [InlineData("å", "a")]
+        [InlineData("ä", "a")]
+        [InlineData("ö", "o")]
+        [InlineData("Ångström är en enhet.", "Angstrom ar en enhet.")]
+        public void ReplaceDiacriticalMarks_Swedish_Pass(string sourceText, string resultText)
+        {
+            var result = sourceText.ReplaceDiacriticalMarks(Language.Swedish);
+            Assert.Equal(resultText, result);
+        }
+
+        [Theory]
+        [InlineData("å", "å", Language.Swedish)]
+        [InlineData("ä", "ä", Language.Swedish)]
+        [InlineData("Ångström är en enhet.", "Ångström är en enhet.", Language.Swedish)]
+        public void ReplaceDiacriticalMarks_Swedish_Fail(string sourceText, string resultText, Language language)
+        {
+            var result = sourceText.ReplaceDiacriticalMarks(language);
+            Assert.NotEqual(resultText, result);
+        }
+
+        [Theory]
+        [InlineData("á", "a")]
+        [InlineData("č", "c")]
+        [InlineData("ď", "d")]
+        [InlineData("ľ", "l")]
+        [InlineData("ň", "n")]
+        [InlineData("Študenti študujú.", "Studenti studuju.")]
+        public void ReplaceDiacriticalMarks_Slovak_Pass(string sourceText, string resultText)
+        {
+            var result = sourceText.ReplaceDiacriticalMarks(Language.Slovak);
+            Assert.Equal(resultText, result);
+        }
+
+        [Theory]
+        [InlineData("č", "č", Language.Slovak)]
+        [InlineData("ď", "ď", Language.Slovak)]
+        [InlineData("Študenti študujú.", "Študenti študujú.", Language.Slovak)]
+        public void ReplaceDiacriticalMarks_Slovak_Fail(string sourceText, string resultText, Language language)
+        {
+            var result = sourceText.ReplaceDiacriticalMarks(language);
+            Assert.NotEqual(resultText, result);
+        }
+
+        [Theory]
+        [InlineData("č", "c")]
+        [InlineData("ď", "d")]
+        [InlineData("ě", "e")]
+        [InlineData("ň", "n")]
+        [InlineData("ř", "r")]
+        [InlineData("šťastný", "stastny")]
+        public void ReplaceDiacriticalMarks_Czech_Pass(string sourceText, string resultText)
+        {
+            var result = sourceText.ReplaceDiacriticalMarks(Language.Czech);
+            Assert.Equal(resultText, result);
+        }
+
+        [Theory]
+        [InlineData("ř", "ř", Language.Czech)]
+        [InlineData("šťastný", "šťastný", Language.Czech)]
+        public void ReplaceDiacriticalMarks_Czech_Fail(string sourceText, string resultText, Language language)
+        {
+            var result = sourceText.ReplaceDiacriticalMarks(language);
+            Assert.NotEqual(resultText, result);
+        }
+
+        [Theory]
+        [InlineData("á", "a")]
+        [InlineData("é", "e")]
+        [InlineData("í", "i")]
+        [InlineData("ó", "o")]
+        [InlineData("ö", "o")]
+        [InlineData("ő", "o")]
+        [InlineData("ú", "u")]
+        [InlineData("ü", "u")]
+        [InlineData("ű", "u")]
+        [InlineData("árvíztűrő tükörfúrógép", "arvizturo tukorfurogep")]
+        public void ReplaceDiacriticalMarks_Hungarian_Pass(string sourceText, string resultText)
+        {
+            var result = sourceText.ReplaceDiacriticalMarks(Language.Hungarian);
+            Assert.Equal(resultText, result);
+        }
+
+        [Theory]
+        [InlineData("ő", "ő", Language.Hungarian)]
+        [InlineData("ű", "ű", Language.Hungarian)]
+        [InlineData("árvíztűrő tükörfúrógép", "árvíztűrő tükörfúrógép", Language.Hungarian)]
+        public void ReplaceDiacriticalMarks_Hungarian_Fail(string sourceText, string resultText, Language language)
+        {
+            var result = sourceText.ReplaceDiacriticalMarks(language);
+            Assert.NotEqual(resultText, result);
+        }
+
+        [Theory]
+        [InlineData("č", "c")]
+        [InlineData("ć", "c")]
+        [InlineData("đ", "d")]
+        [InlineData("š", "s")]
+        [InlineData("ž", "z")]
+        [InlineData("Đorđe je došao.", "Dorde je dosao.")]
+        public void ReplaceDiacriticalMarks_Serbian_Pass(string sourceText, string resultText)
+        {
+            var result = sourceText.ReplaceDiacriticalMarks(Language.Serbian);
+            Assert.Equal(resultText, result);
+        }
+
+        [Theory]
+        [InlineData("č", "č", Language.Serbian)]
+        [InlineData("Đorđe je došao.", "Đorđe je došao.", Language.Serbian)]
+        public void ReplaceDiacriticalMarks_Serbian_Fail(string sourceText, string resultText, Language language)
+        {
+            var result = sourceText.ReplaceDiacriticalMarks(language);
+            Assert.NotEqual(resultText, result);
+        }
 
         [Fact]
         public void Marks_Replace_Performance()
