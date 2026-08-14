@@ -218,3 +218,5 @@ __pycache__/
 *.xsd.cs
 
 /Wookashi.ExtraText/nuget.exe
+claude.md
+.claude
