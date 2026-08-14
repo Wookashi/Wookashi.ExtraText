@@ -24,6 +24,7 @@
     <RepositoryUrl>https://github.com/Wookashi/Wookashi.ExtraText.git</RepositoryUrl>
     <Owners>Wookashi</Owners>
     <LangVersion>latest</LangVersion>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
   </PropertyGroup>
   <ItemGroup>
     <None Include="icon.png" Pack="true" PackagePath="." />
