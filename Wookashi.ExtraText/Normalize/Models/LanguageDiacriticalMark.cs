@@ -258,6 +258,13 @@ namespace Wookashi.ExtraText.Normalize.Models
             new LanguageDiacriticalMark(Language.Turkish, "Ş", "S"),
             new LanguageDiacriticalMark(Language.Turkish, "ü", "u"),
             new LanguageDiacriticalMark(Language.Turkish, "Ü", "U"),
+            // Danish
+            new LanguageDiacriticalMark(Language.Danish, "æ", "ae"),
+            new LanguageDiacriticalMark(Language.Danish, "Æ", "AE"),
+            new LanguageDiacriticalMark(Language.Danish, "ø", "o"),
+            new LanguageDiacriticalMark(Language.Danish, "Ø", "O"),
+            new LanguageDiacriticalMark(Language.Danish, "å", "a"),
+            new LanguageDiacriticalMark(Language.Danish, "Å", "A"),
         };
     }
 }
