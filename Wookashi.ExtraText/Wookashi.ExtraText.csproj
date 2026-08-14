@@ -7,11 +7,12 @@
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
     <Description>Simple package to replace diactric marks in text.
 Supported languages: Polish and German.</Description>
-    <Version>1.0.3.0</Version>
+    <Version>1.0.4</Version>
     <Copyright>Wookashi</Copyright>
     <NeutralLanguage>en</NeutralLanguage>
     <Authors>Wookashi</Authors>
     <Company />
+    <PackageVersion>1.0.4</PackageVersion>
   </PropertyGroup>
     
   <ItemGroup>
