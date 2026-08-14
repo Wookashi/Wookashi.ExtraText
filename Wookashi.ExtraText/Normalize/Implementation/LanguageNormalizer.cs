@@ -1,14 +1,13 @@
-﻿using System.Linq;
+using System.Linq;
 using System.Text;
 using Wookashi.ExtraText.Normalize.Enums;
 using Wookashi.ExtraText.Normalize.Models;
 
 namespace Wookashi.ExtraText.Normalize.Implementation
 {
-    internal sealed class LanguageNormalizer
+    internal static class LanguageNormalizer
     {
-
-        internal string ReplaceDiacriticalMarks(string text)
+        internal static string ReplaceDiacriticalMarks(string text)
         {
             var builder = new StringBuilder(text);
             foreach (var dMark in LanguageDiacriticalMark.Marks)
@@ -18,7 +17,7 @@ namespace Wookashi.ExtraText.Normalize.Implementation
             return builder.ToString();
         }
 
-        internal string ReplaceDiacriticalMarks(string text, Language language)
+        internal static string ReplaceDiacriticalMarks(string text, Language language)
         {
             var builder = new StringBuilder(text);
             foreach (var dMark in LanguageDiacriticalMark.Marks.Where(x => x.Language == language))

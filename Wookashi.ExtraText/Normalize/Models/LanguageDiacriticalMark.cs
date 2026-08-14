@@ -16,7 +16,7 @@ namespace Wookashi.ExtraText.Normalize.Models
             Target = target;
         }
 
-        internal static IEnumerable<LanguageDiacriticalMark> Marks => new List<LanguageDiacriticalMark>
+        internal static readonly IReadOnlyList<LanguageDiacriticalMark> Marks = new List<LanguageDiacriticalMark>
         {
             // Polish
             new LanguageDiacriticalMark(Language.Polish, "ą", "a"),
